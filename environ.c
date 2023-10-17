@@ -26,7 +26,7 @@ int prepare_env(inf *info)
  */
 char ** take_environ(inf *info)
 {
-	if (!info->environ || info->env_changed)
+	if (!info->environ || info->env_ch)
 	{
 		info->environ = list_to_strings(info->enviro);
 		info->env_ch = 0;

@@ -35,7 +35,7 @@ int main(int ac, char **av)
 			}
 			return (EXIT_FAILURE);
 		}
-		info->readfd = fd;
+		info->r_fd = fd;
 	}
 	prepare_env(info);
 	_r_history(info);
