@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "headers.h"
 
 /**
  * clear_info - initializes info_t struct
@@ -12,37 +12,7 @@ void clear_info(info_t *info)
 	info->argc = 0;
 }
 
-/**
- * set_info - initializes info_t struct
- * @info: struct address
- * @av: argument vector
- */
-void set_info(info_t *info, char **av)
-{
-	int i = 0;
 
-	info->fname = av[0];
-	if (info->arg)
-	{
-		info->argv = strtow(info->arg, " \t");
-		if (!info->argv)
-		{
-
-			info->argv = malloc(sizeof(char *) * 2);
-			if (info->argv)
-			{
-				info->argv[0] = _strdup(info->arg);
-				info->argv[1] = NULL;
-			}
-		}
-		for (i = 0; info->argv && info->argv[i]; i++)
-			;
-		info->argc = i;
-
-		replace_alias(info);
-		replace_vars(info);
-	}
-}
 
 /**
  * free_info - frees info_t struct fields
@@ -71,4 +41,45 @@ void free_info(info_t *info, int all)
 			close(info->readfd);
 		_putchar(BUF_FLUSH);
 	}
+}
+
+
+/**
+ * free_list - frees all nodes of a list
+ * @head_ptr: address of pointer to head node
+ *
+ * Return: void
+ */
+void free_list(list_t **head_ptr)
+{
+	list_t *node, *next_node, *head;
+
+	if (!head_ptr || !*head_ptr)
+		return;
+	head = *head_ptr;
+	node = head;
+	while (node)
+	{
+		next_node = node->next;
+		free(node->str);
+		free(node);
+		node = next_node;
+	}
+	*head_ptr = NULL;
+}
+/**
+ * bfree - frees a pointer and NULLs the address
+ * @ptr: address of the pointer to free
+ *
+ * Return: 1 if freed, otherwise 0.
+ */
+int bfree(void **ptr)
+{
+	if (ptr && *ptr)
+	{
+		free(*ptr);
+		*ptr = NULL;
+		return (1);
+	}
+	return (0);
 }

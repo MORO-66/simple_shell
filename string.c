@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "headers.h"
 
 /**
  * _strlen - returns the length of a string
@@ -41,21 +41,6 @@ int _strcmp(char *s1, char *s2)
 }
 
 /**
- * starts_with - checks if needle starts with haystack
- * @haystack: string to search
- * @needle: the substring to find
- *
- * Return: address of next char of haystack or NULL
- */
-char *starts_with(const char *haystack, const char *needle)
-{
-	while (*needle)
-		if (*needle++ != *haystack++)
-			return (NULL);
-	return ((char *)haystack);
-}
-
-/**
  * _strcat - concatenates two strings
  * @dest: the destination buffer
  * @src: the source buffer
@@ -71,5 +56,51 @@ char *_strcat(char *dest, char *src)
 	while (*src)
 		*dest++ = *src++;
 	*dest = *src;
+	return (ret);
+}
+
+
+/**
+ * _strcpy - copies a string
+ * @dest: the destination
+ * @src: the source
+ *
+ * Return: pointer to destination
+ */
+char* _strcpy(char* dest, char* src)
+{
+	int i = 0;
+
+	if (dest == src || src == 0)
+		return (dest);
+	while (src[i])
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = 0;
+	return (dest);
+}
+
+/**
+ * _strdup - duplicates a string
+ * @str: the string to duplicate
+ *
+ * Return: pointer to the duplicated string
+ */
+char* _strdup(const char* str)
+{
+	int length = 0;
+	char* ret;
+
+	if (str == NULL)
+		return (NULL);
+	while (*str++)
+		length++;
+	ret = malloc(sizeof(char) * (length + 1));
+	if (!ret)
+		return (NULL);
+	for (length++; length--;)
+		ret[length] = *--str;
 	return (ret);
 }

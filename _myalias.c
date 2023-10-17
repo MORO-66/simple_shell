@@ -1,18 +1,4 @@
-#include "shell.h"
-
-/**
- * _myhistory - displays the history list, one command by line, preceded
- *              with line numbers, starting at 0.
- * @info: Structure containing potential arguments. Used to maintain
- *        constant function prototype.
- *  Return: Always 0
- */
-int _myhistory(info_t *info)
-{
-	print_list(info->history);
-	return (0);
-}
-
+#include "headers.h"
 /**
  * unset_alias - sets alias to string
  * @info: parameter struct
@@ -112,4 +98,34 @@ int _myalias(info_t *info)
 	}
 
 	return (0);
+}
+
+
+/**
+ * replace_alias - replaces an aliases in the tokenized string
+ * @info: the parameter struct
+ *
+ * Return: 1 if replaced, 0 otherwise
+ */
+int replace_alias(info_t *info)
+{
+	int i;
+	list_t *node;
+	char *p;
+
+	for (i = 0; i < 10; i++)
+	{
+		node = node_starts_with(info->alias, info->argv[0], '=');
+		if (!node)
+			return (0);
+		free(info->argv[0]);
+		p = _strchr(node->str, '=');
+		if (!p)
+			return (0);
+		p = _strdup(p + 1);
+		if (!p)
+			return (0);
+		info->argv[0] = p;
+	}
+	return (1);
 }
