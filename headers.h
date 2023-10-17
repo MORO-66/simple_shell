@@ -172,7 +172,7 @@ void print_error(info_t *, char *);
 int print_d(int, int);
 char *convert_number(long int, int, int);
 void remove_comments(char *);
-
+ssize_t read_buf(info_t* info, char* buf, size_t* i);
 /* toem_builtin.c */
 int _myexit(info_t *);
 int _mycd(info_t *);
