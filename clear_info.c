@@ -36,12 +36,7 @@ void free_info(inf *info, int all)
 			free_list(&(info->aliases));
 		kno_free(info->environ);
 			info->environ = NULL;
-			if (info->cmd_buf)
-			{
-				free(info->cmd_buf);
-				info->cmd_buf = NULL;
-				return (1);
-			}
+		info->cmd_buf = NULL;
 			//must_free((void **)(info->cmd_buf));
 		if (info->r_fd > 2)
 			close(info->r_fd);
