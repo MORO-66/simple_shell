@@ -7,7 +7,7 @@
  * Return: On success 1.
  * On error, -1 is returned, and errno is set appropriately.
  */
-int _putfd(char c, int fd)
+int _put_as_fd(char c, int fd)
 {
 	static int i;
 	static char buf[WRITE_BUF_SIZE];
@@ -29,7 +29,7 @@ int _putfd(char c, int fd)
  *
  * Return: the number of chars put
  */
-int _putsfd(char *str, int fd)
+int _puts_as_fd(char *str, int fd)
 {
 	int i = 0;
 
@@ -37,7 +37,7 @@ int _putsfd(char *str, int fd)
 		return (0);
 	while (*str)
 	{
-		i += _putfd(*str++, fd);
+		i += _put_as_fd(*str++, fd);
 	}
 	return (i);
 }

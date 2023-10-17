@@ -5,11 +5,11 @@
  *
  * Return: 1 on success, else -1
  */
-int write_history(info_t *info)
+int enf_history(inf *info)
 {
 	ssize_t fd;
-	char *filename = get_history_file(info);
-	list_t *node = NULL;
+	char *filename = get_h_f(info);
+	list *node = NULL;
 
 	if (!filename)
 		return (-1);
@@ -20,10 +20,10 @@ int write_history(info_t *info)
 		return (-1);
 	for (node = info->history; node; node = node->next)
 	{
-		_putsfd(node->str, fd);
-		_putfd('\n', fd);
+		_puts_as_fd(node->str, fd);
+		_put_as_fd('\n', fd);
 	}
-	_putfd(BUF_FLUSH, fd);
+	_put_as_fd(BUF_FLUSH, fd);
 	close(fd);
 	return (1);
 }
@@ -34,12 +34,12 @@ int write_history(info_t *info)
  *
  * Return: histcount on success, 0 otherwise
  */
-int read_history(info_t *info)
+int _r_history(inf *info)
 {
 	int i, last = 0, linecount = 0;
 	ssize_t fd, rdlen, fsize = 0;
 	struct stat st;
-	char *buf = NULL, *filename = get_history_file(info);
+	char *buf = NULL, *filename = get_h_f(info);
 
 	if (!filename)
 		return (0);
@@ -64,15 +64,15 @@ int read_history(info_t *info)
 		if (buf[i] == '\n')
 		{
 			buf[i] = 0;
-			build_history_list(info, buf + last, linecount++);
+			Creat_his_l(info, buf + last, linecount++);
 			last = i + 1;
 		}
 	if (last != i)
-		build_history_list(info, buf + last, linecount++);
+		Creat_his_l(info, buf + last, linecount++);
 	free(buf);
-	info->histcount = linecount;
-	while (info->histcount-- >= HIST_MAX)
+	info->hist_c = linecount;
+	while (info->hist_c-- >= HIST_MAX)
 		delete_node_at_index(&(info->history), 0);
-	renumber_history(info);
-	return (info->histcount);
+	resum(info);
+	return (info->hist_c);
 }

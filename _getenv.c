@@ -1,19 +1,19 @@
 #include "headers.h"
 /**
- * _getenv - gets the value of an environ variable
- * @info: Structure containing potential arguments. Used to maintain
- * @name: env var name
+ * _getenv - gf an environ variable
+ * @info: Strug potential arguments. Used to maintain
+ * @name: env 
  *
- * Return: the value
+ * Return: the
  */
-char *_getenv(info_t *info, const char *name)
+char *_getenv(inf *f, const char *filename)
 {
-	list_t *node = info->env;
+	list *node = f->enviro;
 	char *p;
 
 	while (node)
 	{
-		p = starts_with(node->str, name);
+		p = start(node->str, filename);
 		if (p && *p)
 			return (p);
 		node = node->next;
@@ -21,13 +21,13 @@ char *_getenv(info_t *info, const char *name)
 	return (NULL);
 }
 /**
- * get_history_file - gets the history file
- * @info: parameter struct
+ * get_history_f- gfile
+ * @info: paramestr
  *
- * Return: allocated string containg history file
+ * Return: alloc ststory file
  */
 
-char *get_history_file(info_t *info)
+char *get_h_f(inf *info)
 {
 	char *buf, *dir;
 

@@ -1,17 +1,17 @@
 #include "headers.h"
 /**
- * _myhelp - changes the current directory of the process
- * @info: Structure containing potential arguments. Used to maintain
- *          constant function prototype.
- *  Return: Always 0
+ * _myhelp - charrent directory of the process
+ * @info: Structing potential arguments. Used to maintain
+ *          conson prototype.
+ *  Return: Alwa
  */
-int _myhelp(info_t *info)
+int _myhelp(inf *f)
 {
-	char **arg_array;
+	char **array;
 
-	arg_array = info->argv;
+	array = f->argv;
 	_puts("help call works. Function not yet implemented \n");
 	if (0)
-		_puts(*arg_array); /* temp att_unused workaround */
+		_puts(*array); /* temp att_unused workaround */
 	return (0);
 }

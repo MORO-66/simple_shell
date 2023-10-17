@@ -1,13 +1,13 @@
 #include "headers.h"
 /**
- * _myhistory - displays the history list, one command by line, preceded
- *              with line numbers, starting at 0.
- * @info: Structure containing potential arguments. Used to maintain
- *        constant function prototype.
- *  Return: Always 0
+ * _myhistory - dihistory list, one command by line, preceded
+ *              wibers, starting at 0.
+ * @info: Structurg potential arguments. Used to maintain
+ *        constantrototype.
+ *  Return: Always
  */
-int _myhistory(info_t *info)
+int _myhistory(inf *f)
 {
-	print_list(info->history);
+	print_list(f->history);
 	return (0);
 }

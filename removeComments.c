@@ -6,7 +6,7 @@
  *
  * Return: Always 0;
  */
-void remove_comments(char *buf)
+void removeComments(char *buf)
 {
 	int i;
 

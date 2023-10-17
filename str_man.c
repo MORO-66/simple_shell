@@ -5,7 +5,7 @@
  *@c: the character to look for
  *Return: (s) a pointer to the memory area s
  */
-char *_strchr(char *s, char c)
+char * _chr_search(char *s, char c)
 {
 	do {
 		if (*s == c)

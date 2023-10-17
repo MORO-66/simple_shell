@@ -1,17 +1,17 @@
 #include "headers.h"
 /**
- * set_info - initializes info_t struct
- * @info: struct address
- * @av: argument vector
+ * set_info - initiinfo_t struct
+ * @info: struct ad
+ * @av: argument ve
  */
-void set_info(info_t *info, char **av)
+void reset_info(inf *info, char **av)
 {
 	int i = 0;
 
-	info->fname = av[0];
+	info->filename = av[0];
 	if (info->arg)
 	{
-		info->argv = strtow(info->arg, " \t");
+		info->argv = string_to_words(info->arg, " \t");
 		if (!info->argv)
 		{
 
@@ -26,7 +26,7 @@ void set_info(info_t *info, char **av)
 			;
 		info->argc = i;
 
-		replace_alias(info);
-		replace_vars(info);
+		change_alias(info);
+		dollar_handler(info);
 	}
 }

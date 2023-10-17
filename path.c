@@ -1,22 +1,22 @@
 #include "headers.h"
 /**
- * find_path - finds this cmd in the PATH string
- * @info: the info struct
- * @pathstr: the PATH string
- * @cmd: the cmd to find
+ * find_path - finds the PATH string
+ * @info: the info s
+ * @pathstr: the PAT
+ * @cmd: the cmd to 
  *
- * Return: full path of cmd if found or NULL
+ * Return: full pathound or NULL
  */
-char *find_path(info_t *info, char *pathstr, char *cmd)
+char * where_path(inf *info, char *pathstr, char *cmd)
 {
 	int i = 0, curr_pos = 0;
 	char *path;
 
 	if (!pathstr)
 		return (NULL);
-	if ((_strlen(cmd) > 2) && starts_with(cmd, "./"))
+	if ((_strlen(cmd) > 2) && start(cmd, "./"))
 	{
-		if (is_cmd(info, cmd))
+		if (cmd_sure(info, cmd))
 			return (cmd);
 	}
 	while (1)
@@ -31,7 +31,7 @@ char *find_path(info_t *info, char *pathstr, char *cmd)
 				_strcat(path, "/");
 				_strcat(path, cmd);
 			}
-			if (is_cmd(info, path))
+			if (cmd_sure(info, path))
 				return (path);
 			if (!pathstr[i])
 				break;

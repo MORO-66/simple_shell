@@ -2,16 +2,16 @@
 
 
 /**
- * build_history_list - adds entry to a history linked list
- * @info: Structure containing potential arguments. Used to maintain
+ * build_history_list - a tstory linked list
+ * @info: Structure contaenrguments. Used to maintain
  * @buf: buffer
- * @linecount: the history linecount, histcount
+ * @linecount: the historntcount
  *
  * Return: Always 0
  */
-int build_history_list(info_t *info, char *buf, int linecount)
+int Creat_his_l(inf *info, char *buf, int linecount)
 {
-	list_t *node = NULL;
+	list *node = NULL;
 
 	if (info->history)
 		node = info->history;
@@ -23,14 +23,14 @@ int build_history_list(info_t *info, char *buf, int linecount)
 }
 
 /**
- * renumber_history - renumbers the history linked list after changes
- * @info: Structure containing potential arguments. Used to maintain
+ * renumber_history - renumbthe history linked list after changes
+ * @info: Structure containiotential arguments. Used to maintain
  *
  * Return: the new histcount
  */
-int renumber_history(info_t *info)
+int resum(inf *info)
 {
-	list_t *node = info->history;
+	list *node = info->history;
 	int i = 0;
 
 	while (node)
@@ -38,5 +38,5 @@ int renumber_history(info_t *info)
 		node->num = i++;
 		node = node->next;
 	}
-	return (info->histcount = i);
+	return (info->hist_c = i);
 }

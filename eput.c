@@ -1,12 +1,12 @@
 #include "headers.h"
 
 /**
- *_eputs - prints an input string
- * @str: the string to be printed
+ *_eputs - pran input string
+ * @str: the g to be printed
  *
- * Return: Nothing
+ * Return: No
  */
-void _eputs(char *str)
+void _errorputs(char *str)
 {
 	int i = 0;
 
@@ -20,11 +20,11 @@ void _eputs(char *str)
 }
 
 /**
- * _eputchar - writes the character c to stderr
- * @c: The character to print
+ * _eputchar - wcharacter c to stderr
+ * @c: The charaint
  *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
+ * Return: On su
+ * On error, -1 d, and errno is set appropriately.
  */
 int _eputchar(char c)
 {

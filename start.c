@@ -1,12 +1,12 @@
 #include "headers.h"
 /**
- * starts_with - checks if needle starts with haystack
- * @haystack: string to search
- * @needle: the substring to find
+ * starts_with - checks if n with haystack
+ * @haystack: string to sear
+ * @needle: the substring to
  *
- * Return: address of next char of haystack or NULL
+ * Return: address of next cack or NULL
  */
-char *starts_with(const char *haystack, const char *needle)
+char *start(const char *haystack, const char *needle)
 {
 	while (*needle)
 		if (*needle++ != *haystack++)

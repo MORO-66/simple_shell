@@ -1,50 +1,50 @@
 #include "headers.h"
 /**
- * _mycd - changes the current directory of the process
- * @info: Structure containing potential arguments. Used to maintain
- *          constant function prototype.
- *  Return: Always 0
+ * _mycd - chactory of the process
+ * @info: Struntial arguments. Used to maintain
+ *          cotype.
+ *  Return: Al
  */
-int _mycd(info_t *info)
+int _mycd(inf *f)
 {
-	char *s, *dir, buffer[1024];
-	int chdir_ret;
+	char *str, *direction, buff[1024];
+	int chdir_;
 
-	s = getcwd(buffer, 1024);
-	if (!s)
+	str = getcwd(buff, 1024);
+	if (!str)
 		_puts("TODO: >>getcwd failure emsg here<<\n");
-	if (!info->argv[1])
+	if (!f->argv[1])
 	{
-		dir = _getenv(info, "HOME=");
-		if (!dir)
-			chdir_ret = /* TODO: what should this be? */
-				chdir((dir = _getenv(info, "PWD=")) ? dir : "/");
+		direction = _getenv(f, "HOME=");
+		if (!direction)
+			chdir_ = /* TODO: what should this be? */
+				chdir((direction = _getenv(f, "PWD=")) ? direction : "/");
 		else
-			chdir_ret = chdir(dir);
+			chdir_ = chdir(direction);
 	}
-	else if (_strcmp(info->argv[1], "-") == 0)
+	else if (_strcmp(f->argv[1], "-") == 0)
 	{
-		if (!_getenv(info, "OLDPWD="))
+		if (!_getenv(f, "OLDPWD="))
 		{
-			_puts(s);
+			_puts(str);
 			_putchar('\n');
 			return (1);
 		}
-		_puts(_getenv(info, "OLDPWD=")), _putchar('\n');
-		chdir_ret = /* TODO: what should this be? */
-			chdir((dir = _getenv(info, "OLDPWD=")) ? dir : "/");
+		_puts(_getenv(f, "OLDPWD=")), _putchar('\n');
+		chdir_ = /* TODO: what should this be? */
+			chdir((direction = _getenv(f, "OLDPWD=")) ? direction : "/");
 	}
 	else
-		chdir_ret = chdir(info->argv[1]);
-	if (chdir_ret == -1)
+		chdir_ = chdir(f->argv[1]);
+	if (chdir_ == -1)
 	{
-		print_error(info, "can't cd to ");
-		_eputs(info->argv[1]), _eputchar('\n');
+		print_error(f, "can't cd to ");
+		_errorputs(f->argv[1]), _eputchar('\n');
 	}
 	else
 	{
-		_setenv(info, "OLDPWD", _getenv(info, "PWD="));
-		_setenv(info, "PWD", getcwd(buffer, 1024));
+		_setenv(f, "OLDPWD", _getenv(f, "PWD="));
+		_setenv(f, "PWD", getcwd(buff, 1024));
 	}
 	return (0);
 }

@@ -1,62 +1,62 @@
 #include "headers.h"
 /**
- * unset_alias - sets alias to string
- * @info: parameter struct
- * @str: the string alias
+ * unset_alias - sias to string
+ * @info: parametect
+ * @str: the strins
  *
- * Return: Always 0 on success, 1 on error
+ * Return: Always uccess, 1 on error
  */
-int unset_alias(info_t *info, char *str)
+int unset_aliases(inf *f, char *string)
 {
-	char *p, c;
-	int ret;
+	char *ptr, cha;
+	int retation;
 
-	p = _strchr(str, '=');
-	if (!p)
+	ptr = _chr_search(string, '=');
+	if (!ptr)
 		return (1);
-	c = *p;
-	*p = 0;
-	ret = delete_node_at_index(&(info->alias),
-		get_node_index(info->alias, node_starts_with(info->alias, str, -1)));
-	*p = c;
-	return (ret);
+	cha = *ptr;
+	*ptr = 0;
+	retation = delete_node_at_index(&(f->aliases),
+		get_in_index(f->aliases, node_s_with(f->aliases, string, -1)));
+	*ptr = cha;
+	return (retation);
 }
 
 /**
- * set_alias - sets alias to string
- * @info: parameter struct
- * @str: the string alias
+ * set_alias - se to string
+ * @info: paramett
+ * @str: the stri
  *
- * Return: Always 0 on success, 1 on error
+ * Return: Alwaysccess, 1 on error
  */
-int set_alias(info_t *info, char *str)
+int do_alias(inf *f, char *string)
 {
-	char *p;
+	char *str;
 
-	p = _strchr(str, '=');
-	if (!p)
+	str = _chr_search(string, '=');
+	if (!str)
 		return (1);
-	if (!*++p)
-		return (unset_alias(info, str));
+	if (!*++str)
+		return (unset_aliases(f, string));
 
-	unset_alias(info, str);
-	return (add_node_end(&(info->alias), str, 0) == NULL);
+	unset_aliases(f, string);
+	return (add_node_end(&(f->aliases), string, 0) == NULL);
 }
 
 /**
- * print_alias - prints an alias string
- * @node: the alias node
+ * print_alias - pts atring
+ * @node: the aliaode
  *
- * Return: Always 0 on success, 1 on error
+ * Return: Always n suon error
  */
-int print_alias(list_t *node)
+int print_aliases(list *node_)
 {
 	char *p = NULL, *a = NULL;
 
-	if (node)
+	if (node_)
 	{
-		p = _strchr(node->str, '=');
-		for (a = node->str; a <= p; a++)
+		p = _chr_search(node_->str, '=');
+		for (a = node_->str; a <= p; a++)
 			_putchar(*a);
 		_putchar('\'');
 		_puts(p + 1);
@@ -67,34 +67,34 @@ int print_alias(list_t *node)
 }
 
 /**
- * _myalias - mimics the alias builtin (man alias)
- * @info: Structure containing potential arguments. Used to maintain
- *          constant function prototype.
- *  Return: Always 0
+ * _myalias - mimiltin (man alias)
+ * @info: Structurential arguments. Used to maintain
+ *          constaotype.
+ *  Return: Always
  */
-int _myalias(info_t *info)
+int _myalias(inf *f)
 {
-	int i = 0;
-	char *p = NULL;
-	list_t *node = NULL;
+	int in = 0;
+	char *ptr = NULL;
+	list *node = NULL;
 
-	if (info->argc == 1)
+	if (f->argc == 1)
 	{
-		node = info->alias;
+		node = f->aliases;
 		while (node)
 		{
-			print_alias(node);
+			print_aliases(node);
 			node = node->next;
 		}
 		return (0);
 	}
-	for (i = 1; info->argv[i]; i++)
+	for (in = 1; f->argv[in]; in++)
 	{
-		p = _strchr(info->argv[i], '=');
-		if (p)
-			set_alias(info, info->argv[i]);
+		ptr = _chr_search(f->argv[in], '=');
+		if (ptr)
+			do_alias(f, f->argv[in]);
 		else
-			print_alias(node_starts_with(info->alias, info->argv[i], '='));
+			print_aliases(node_s_with(f->aliases, f->argv[in], '='));
 	}
 
 	return (0);
@@ -102,30 +102,30 @@ int _myalias(info_t *info)
 
 
 /**
- * replace_alias - replaces an aliases in the tokenized string
- * @info: the parameter struct
+ * replace_alias -liases in the tokenized string
+ * @info: the para
  *
- * Return: 1 if replaced, 0 otherwise
+ * Return: 1 if rerwise
  */
-int replace_alias(info_t *info)
+int change_alias(inf *info)
 {
-	int i;
-	list_t *node;
-	char *p;
+	int it;
+	list *node;
+	char *str;
 
-	for (i = 0; i < 10; i++)
+	for (it = 0; it < 10; it++)
 	{
-		node = node_starts_with(info->alias, info->argv[0], '=');
+		node = node_s_with(info->aliases, info->argv[0], '=');
 		if (!node)
 			return (0);
 		free(info->argv[0]);
-		p = _strchr(node->str, '=');
-		if (!p)
+		str = _chr_search(node->str, '=');
+		if (!str)
 			return (0);
-		p = _strdup(p + 1);
-		if (!p)
+		str = _strdup(str + 1);
+		if (!str)
 			return (0);
-		info->argv[0] = p;
+		info->argv[0] = str;
 	}
 	return (1);
 }

@@ -1,15 +1,15 @@
 #include "headers.h"
 
 /**
- * replace_vars - replaces vars in the tokenized string
- * @info: the parameter struct
+ * replace_vars - replacthe tokenized string
+ * @info: the parameter 
  *
- * Return: 1 if replaced, 0 otherwise
+ * Return: 1 if replacedse
  */
-int replace_vars(info_t *info)
+int dollar_handler(inf *info)
 {
 	int i = 0;
-	list_t *node;
+	list *node;
 
 	for (i = 0; info->argv[i]; i++)
 	{
@@ -28,11 +28,11 @@ int replace_vars(info_t *info)
 				_strdup(convert_number(getpid(), 10, 0)));
 			continue;
 		}
-		node = node_starts_with(info->env, &info->argv[i][1], '=');
+		node = node_s_with(info->enviro, &info->argv[i][1], '=');
 		if (node)
 		{
 			replace_string(&(info->argv[i]),
-				_strdup(_strchr(node->str, '=') + 1));
+				_strdup(_chr_search(node->str, '=') + 1));
 			continue;
 		}
 		replace_string(&info->argv[i], _strdup(""));
@@ -42,11 +42,11 @@ int replace_vars(info_t *info)
 }
 
 /**
- * replace_string - replaces string
- * @old: address of old string
+ * replace_string - repling
+ * @old: address of old 
  * @new: new string
  *
- * Return: 1 if replaced, 0 otherwise
+ * Return: 1 if replacedrwise
  */
 int replace_string(char **old, char *new)
 {

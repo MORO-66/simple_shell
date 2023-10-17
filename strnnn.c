@@ -1,11 +1,11 @@
 #include "headers.h"
 
 /**
- **_strncpy - copies a string
- *@dest: the destination string to be copied to
- *@src: the source string
- *@n: the amount of characters to be copied
- *Return: the concatenated string
+ **_strncpy - copies
+ *@dest: the destinabe copied to
+ *@src: the source s
+ *@n: the amount of e copied
+ *Return: the concat
  */
 char *_strncpy(char *dest, char *src, int n)
 {
@@ -31,11 +31,11 @@ char *_strncpy(char *dest, char *src, int n)
 }
 
 /**
- **_strncat - concatenates two strings
- *@dest: the first string
- *@src: the second string
- *@n: the amount of bytes to be maximally used
- *Return: the concatenated string
+ **_strncat - conc two strings
+ *@dest: the first
+ *@src: the second
+ *@n: the amount oto be maximally used
+ *Return: the conc string
  */
 char *_strncat(char *dest, char *src, int n)
 {

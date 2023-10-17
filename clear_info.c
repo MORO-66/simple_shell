@@ -1,58 +1,58 @@
 #include "headers.h"
 
 /**
- * clear_info - initializes info_t struct
- * @info: struct address
+ * clear_info - inlizes info_t struct
+ * @info: struct ass
  */
-void clear_info(info_t *info)
+void null_info(inf *info)
 {
 	info->arg = NULL;
 	info->argv = NULL;
-	info->path = NULL;
+	info->path_ = NULL;
 	info->argc = 0;
 }
 
 
 
 /**
- * free_info - frees info_t struct fields
- * @info: struct address
- * @all: true if freeing all fields
+ * free_info - fre_t struct fields
+ * @info: struct a
+ * @all: true if fall fields
  */
-void free_info(info_t *info, int all)
+void free_info(inf *info, int all)
 {
-	ffree(info->argv);
+	kno_free(info->argv);
 	info->argv = NULL;
-	info->path = NULL;
+	info->path_ = NULL;
 	if (all)
 	{
 		if (!info->cmd_buf)
 			free(info->arg);
-		if (info->env)
-			free_list(&(info->env));
+		if (info->enviro)
+			free_list(&(info->enviro));
 		if (info->history)
 			free_list(&(info->history));
-		if (info->alias)
-			free_list(&(info->alias));
-		ffree(info->environ);
+		if (info->aliases)
+			free_list(&(info->aliases));
+		kno_free(info->environ);
 			info->environ = NULL;
-		bfree((void **)info->cmd_buf);
-		if (info->readfd > 2)
-			close(info->readfd);
+			must_free((void **)info->cmd_buf);
+		if (info->r_fd > 2)
+			close(info->r_fd);
 		_putchar(BUF_FLUSH);
 	}
 }
 
 
 /**
- * free_list - frees all nodes of a list
- * @head_ptr: address of pointer to head node
+ * free_list - f nodes of a list
+ * @head_ptr: ad pointer to head node
  *
  * Return: void
  */
-void free_list(list_t **head_ptr)
+void free_list(list **head_ptr)
 {
-	list_t *node, *next_node, *head;
+	list *node, *next_node, *head;
 
 	if (!head_ptr || !*head_ptr)
 		return;
@@ -68,12 +68,12 @@ void free_list(list_t **head_ptr)
 	*head_ptr = NULL;
 }
 /**
- * bfree - frees a pointer and NULLs the address
- * @ptr: address of the pointer to free
+ * bfree - frees ULLs the address
+ * @ptr: address to free
  *
- * Return: 1 if freed, otherwise 0.
+ * Return: 1 if f 0.
  */
-int bfree(void **ptr)
+int must_free(void **ptr)
 {
 	if (ptr && *ptr)
 	{

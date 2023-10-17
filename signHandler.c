@@ -1,11 +1,11 @@
 #include "headers.h"
 /**
- * sigintHandler - blocks ctrl-C
- * @sig_num: the signal number
+ * sigintHandler - bloctrl-C
+ * @sig_num: the signalber
  *
  * Return: void
  */
-void sigintHandler(__attribute__((unused))int sig_num)
+void Handler(__attribute__((unused))int sig_num)
 {
 	_puts("\n");
 	_puts("$ ");

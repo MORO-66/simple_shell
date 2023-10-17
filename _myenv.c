@@ -1,29 +1,29 @@
 #include "headers.h"
 /**
- * _myenv - prints the current environment
- * @info: Structure containing potential arguments. Used to maintain
- *          constant function prototype.
- * Return: Always 0
+ * _myenv - prrent environment
+ * @info: Struning potential arguments. Used to maintain
+ *          coion prototype.
+ * Return: Alw
  */
-int _myenv(info_t *info)
+int _myenv(inf *f)
 {
-	print_list_str(info->env);
+	print_list_sstring(f->enviro);
 	return (0);
 }
 
 
 /**
- * _mysetenv - Initialize a new environment variable,
- *             or modify an existing one
- * @info: Structure containing potential arguments. Used to maintain
- *        constant function prototype.
- *  Return: Always 0
+ * _mysetenv - Ine a new environment variable,
+ *             or an existing one
+ * @info: Structuaining potential arguments. Used to maintain
+ *        constanion prototype.
+ *  Return: Alway
  */
-int _mysetenv(info_t *info)
+int _my_setenv(inf *info)
 {
 	if (info->argc != 3)
 	{
-		_eputs("Incorrect number of arguements\n");
+		_errorputs("Incorrect number of arguements\n");
 		return (1);
 	}
 	if (_setenv(info, info->argv[1], info->argv[2]))
@@ -32,18 +32,18 @@ int _mysetenv(info_t *info)
 }
 
 /**
- * _myunsetenv - Remove an environment variable
- * @info: Structure containing potential arguments. Used to maintain
- *        constant function prototype.
- *  Return: Always 0
+ * _myunsetenv -  environment variable
+ * @info: Structuning potential arguments. Used to maintain
+ *        constann prototype.
+ *  Return: Alway
  */
-int _myunsetenv(info_t *info)
+int _my_unsetenv(inf *info)
 {
 	int i;
 
 	if (info->argc == 1)
 	{
-		_eputs("Too few arguements.\n");
+		_errorputs("Too few arguements.\n");
 		return (1);
 	}
 	for (i = 1; i <= info->argc; i++)
@@ -54,15 +54,15 @@ int _myunsetenv(info_t *info)
 
 
 /**
- * _unsetenv - Remove an environment variable
- * @info: Structure containing potential arguments. Used to maintain
- *        constant function prototype.
- *  Return: 1 on delete, 0 otherwise
- * @var: the string env var property
+ * _unsetenv - Removet variable
+ * @info: Structure cntial arguments. Used to maintain
+ *        constant fupe.
+ *  Return: 1 on delee
+ * @var: the string ey
  */
-int _unsetenv(info_t *info, char *var)
+int _unsetenv(inf *info, char *var)
 {
-	list_t *node = info->env;
+	list *node = info->enviro;
 	size_t i = 0;
 	char *p;
 
@@ -71,33 +71,33 @@ int _unsetenv(info_t *info, char *var)
 
 	while (node)
 	{
-		p = starts_with(node->str, var);
+		p = start(node->str, var);
 		if (p && *p == '=')
 		{
-			info->env_changed = delete_node_at_index(&(info->env), i);
+			info->env_ch = delete_node_at_index(&(info->enviro), i);
 			i = 0;
-			node = info->env;
+			node = info->enviro;
 			continue;
 		}
 		node = node->next;
 		i++;
 	}
-	return (info->env_changed);
+	return (info->env_ch);
 }
 
 /**
- * _setenv - Initialize a new environment variable,
- *             or modify an existing one
- * @info: Structure containing potential arguments. Used to maintain
- *        constant function prototype.
- * @var: the string env var property
- * @value: the string env var value
- *  Return: Always 0
+ * _setenv - Initenvironment variable,
+ *             oristing one
+ * @info: Structu potential arguments. Used to maintain
+ *        constanototype.
+ * @var: the strioperty
+ * @value: the stvalue
+ *  Return: Alway
  */
-int _setenv(info_t *info, char *var, char *value)
+int _setenv(inf *info, char *var, char *value)
 {
 	char *buf = NULL;
-	list_t *node;
+	list *node;
 	char *p;
 
 	if (!var || !value)
@@ -109,21 +109,21 @@ int _setenv(info_t *info, char *var, char *value)
 	_strcpy(buf, var);
 	_strcat(buf, "=");
 	_strcat(buf, value);
-	node = info->env;
+	node = info->enviro;
 	while (node)
 	{
-		p = starts_with(node->str, var);
+		p = start(node->str, var);
 		if (p && *p == '=')
 		{
 			free(node->str);
 			node->str = buf;
-			info->env_changed = 1;
+			info->env_ch = 1;
 			return (0);
 		}
 		node = node->next;
 	}
-	add_node_end(&(info->env), buf, 0);
+	add_node_end(&(info->enviro), buf, 0);
 	free(buf);
-	info->env_changed = 1;
+	info->env_ch = 1;
 	return (0);
 }

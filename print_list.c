@@ -1,11 +1,11 @@
 #include "headers.h"
 /**
- * print_list_str - prints only the str element of a list_t linked list
- * @h: pointer to first node
+ * print_list_str - pr only the str element of a list_t linked list
+ * @h: pointer to firsde
  *
- * Return: size of list
+ * Return: size of lis
  */
-size_t print_list_str(const list_t *h)
+size_t print_list_sstring(const list *h)
 {
 	size_t i = 0;
 
@@ -20,12 +20,12 @@ size_t print_list_str(const list_t *h)
 }
 
 /**
- * print_list - prints all elements of a list_t linked list
- * @h: pointer to first node
+ * print_list - printents of a list_t linked list
+ * @h: pointer to fir
  *
- * Return: size of list
+ * Return: size of li
  */
-size_t print_list(const list_t *h)
+size_t print_list(const list *h)
 {
 	size_t i = 0;
 
