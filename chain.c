@@ -7,6 +7,7 @@
  *
  * Return: 1 if meter,otherwise
  */
+/*
 int chain_sure(inf *f, char *buff, size_t *ptr_si)
 {
 	size_t jaafer = *ptr_si;
@@ -23,9 +24,9 @@ int chain_sure(inf *f, char *buff, size_t *ptr_si)
 		jaafer++;
 		f->cmd_buf = CMD_AND;
 	}
-	else if (buff[jaafer] == ';') /* found end of this command */
+	else if (buff[jaafer] == ';')
 	{
-		buff[jaafer] = 0; /* replace semicolon with null */
+		buff[jaafer] = 0;
 		f->cmd_buf = CMD_CHAIN;
 	}
 	else
@@ -33,7 +34,7 @@ int chain_sure(inf *f, char *buff, size_t *ptr_si)
 	*ptr_si = jaafer;
 	return (1);
 }
-
+*/
 /**
  * check_chain - ches we chaining based on last status
  * @info: the paramer s
@@ -44,6 +45,7 @@ int chain_sure(inf *f, char *buff, size_t *ptr_si)
  *
  * Return: Void
  */
+/*
 void which_if_chain(inf *f, char *buff, size_t *ptr_si, size_t it, size_t lenth)
 {
 	size_t jafer = *ptr_si;
@@ -67,3 +69,4 @@ void which_if_chain(inf *f, char *buff, size_t *ptr_si, size_t it, size_t lenth)
 
 	*ptr_si = jafer;
 }
+*/
