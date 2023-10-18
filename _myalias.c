@@ -5,7 +5,7 @@
  * @str: the strins
  *
  * Return: Always uccess, 1 on error
- */
+ *//*
 int unset_aliases(inf *f, char *string)
 {
 	char *ptr, cha;
@@ -21,7 +21,7 @@ int unset_aliases(inf *f, char *string)
 	*ptr = cha;
 	return (retation);
 }
-
+*/
 /**
  * set_alias - se to string
  * @info: paramett
@@ -29,6 +29,7 @@ int unset_aliases(inf *f, char *string)
  *
  * Return: Alwaysccess, 1 on error
  */
+/*
 int do_alias(inf *f, char *string)
 {
 	char *str;
@@ -37,18 +38,19 @@ int do_alias(inf *f, char *string)
 	if (!str)
 		return (1);
 	if (!*++str)
-		return (unset_aliases(f, string));
+		return (/*unset_aliases(f, string)*//* 0);
 
-	unset_aliases(f, string);
+	/*unset_aliases(f, string);*//*
 	return (add_node_end(&(f->aliases), string, 0) == NULL);
 }
-
+*/
 /**
  * print_alias - pts atring
  * @node: the aliaode
  *
  * Return: Always n suon error
  */
+/*
 int print_aliases(list *node_)
 {
 	char *p = NULL, *a = NULL;
@@ -65,14 +67,14 @@ int print_aliases(list *node_)
 	}
 	return (1);
 }
-
+*/
 /**
  * _myalias - mimiltin (man alias)
  * @info: Structurential arguments. Used to maintain
  *          constaotype.
  *  Return: Always
  */
-int _myalias(inf *f)
+/*int _myalias(inf* f)
 {
 	int in = 0;
 	char *ptr = NULL;
@@ -83,7 +85,7 @@ int _myalias(inf *f)
 		node = f->aliases;
 		while (node)
 		{
-			print_aliases(node);
+			/*print_aliases(node);*//*
 			node = node->next;
 		}
 		return (0);
@@ -92,15 +94,15 @@ int _myalias(inf *f)
 	{
 		ptr = _chr_search(f->argv[in], '=');
 		if (ptr)
-			do_alias(f, f->argv[in]);
+			/*do_alias(f, f->argv[in]);*//*
 		else
-			print_aliases(node_s_with(f->aliases, f->argv[in], '='));
+			/*print_aliases(node_s_with(f->aliases, f->argv[in], '='));
 	}
 
 	return (0);
 }
 
-
+*/
 /**
  * replace_alias -liases in the tokenized string
  * @info: the para

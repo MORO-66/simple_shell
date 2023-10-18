@@ -82,7 +82,7 @@ typedef struct info
 	int error_num;
 	int argc;
 	list *enviro;
-	list *aliases;
+/*	list* aliases;*/
 	list *history;
 	char **environ;
 	char *filename;
@@ -96,7 +96,7 @@ typedef struct info
 } inf;
 
 #define INFO \
-{NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, \
+{NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 0, NULL, \
 	0, 0, 0}
 
 /**
@@ -176,7 +176,7 @@ int _myhelp(inf *);
 
 /* toem_builtin1.c */
 int _myhistory(inf *);
-int _myalias(inf *);
+/*int _myalias(inf*);*/
 
 /*toem_getline.c */
 ssize_t get_line(inf *);
@@ -199,7 +199,7 @@ int prepare_env(inf *);
 char ** take_environ(inf *);
 int _unsetenv(inf *, char *);
 int _setenv(inf *, char *, char *);
-int unset_aliases(inf* info, char* str);
+/*int unset_aliases(inf* info, char* str);*/
 /* toem_history.c */
 char * get_h_f(inf *info);
 int enf_history(inf *info);
