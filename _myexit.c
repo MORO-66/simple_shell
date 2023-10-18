@@ -6,8 +6,8 @@
  *  Return: exits wiexit status
  *         (0) if in!= "exit"
  */
-/*int _myexit(inf* f)*/
-{
+/*int _myexit(inf* f)
+{*/
 	/*int check_status;*/
 
 /*	if (f->argv[1])
