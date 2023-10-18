@@ -29,9 +29,9 @@ void _errorputs(char *strring)
 int _eputchar(char cha)
 {
 	static int i;
-	static char buf[WRITE_BUF_SIZE];
+	static char buf[1024];
 
-	if (cha == BUF_FLUSH || i >= WRITE_BUF_SIZE)
+	if (cha == BUF_FLUSH || i >= 1024)
 	{
 		write(2, buf, i);
 		i = 0;

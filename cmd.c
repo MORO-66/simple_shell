@@ -53,7 +53,8 @@ void find_cmd(inf *f)
 	}
 	else
 	{
-		if ((interactive(f) || _getenv(f, "PATH=")
+		if (((isatty(STDIN_FILENO) && f->r_fd <= 2)
+			|| _getenv(f, "PATH=")
 			|| f->argv[0][0] == '/') && cmd_sure(f, f->argv[0]))
 			cmd_fork(f);
 		else if (*(f->arg) != '\n')
@@ -77,7 +78,6 @@ void cmd_fork(inf *f)
 	pid_ch = fork();
 	if (pid_ch == -1)
 	{
-		/* TODO: PUT ERROR FUNCTION */
 		perror("Error:");
 		return;
 	}
@@ -90,7 +90,6 @@ void cmd_fork(inf *f)
 				exit(126);
 			exit(1);
 		}
-		/* TODO: PUT ERROR FUNCTION */
 	}
 	else
 	{

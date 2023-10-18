@@ -13,9 +13,7 @@ int which_cmd(inf *f)
 {
 	int iter, Builtin_retation = -1;
 	builtin_table builtintbl[] = {
-/*		{"exit", _myexit},*/
 		{"help", _myhelp},
-/*		{"history", _myhistory},*/
 		{NULL, NULL}
 	};
 

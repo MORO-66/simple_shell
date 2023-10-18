@@ -9,7 +9,7 @@
  */
 int _getline(inf *f, char **ptr_s, size_t *lent)
 {
-	static char buf[READ_BUF_SIZE];
+	static char buf[1024];
 	static size_t i, len;
 	size_t n;
 	ssize_t q = 0, m = 0;
@@ -28,7 +28,7 @@ int _getline(inf *f, char **ptr_s, size_t *lent)
 	c = _chr_search(buf + i, '\n');
 	n = c ? 1 + (unsigned int)(c - buf) : len;
 	new_p = _realloc(p, m, m ? m + n : n + 1);
-	if (!new_p) /* MALLOC FAILURE! */
+	if (!new_p)
 		return (p ? free(p), -1 : -1);
 
 	if (m)
@@ -36,9 +36,9 @@ int _getline(inf *f, char **ptr_s, size_t *lent)
 	else
 		_strncpy(new_p, buf + i, n - i + 1);
 
+	p = new_p;
 	m += n - i;
 	i = n;
-	p = new_p;
 
 	if (lent)
 		*lent = m;

@@ -82,7 +82,6 @@ typedef struct info
 	int error_num;
 	int argc;
 	list *enviro;
-/*	list* aliases;*/
 	list *history;
 	char **environ;
 	char *filename;
@@ -133,7 +132,7 @@ int _strlen(char *);
 int _strcmp(char *, char *);
 char * start(const char *, const char *);
 char *_strcat(char *, char *);
-
+ssize_t buf_in(inf* f, char** buff, size_t* lennn);
 /* toem_string1.c */
 char *_strcpy(char *, char *);
 char *_strdup(const char *);
@@ -153,79 +152,53 @@ char * _mem_set(char *, char, unsigned int);
 void kno_free(char **);
 void *_realloc(void *, unsigned int, unsigned int);
 
-/* toem_memory.c */
-int must_free(void **);
 
-/* toem_atoi.c */
-int interactive(inf *);
 int is_delim(char, char *);
-/*int _isalpha(int);*/
-/*int _atoint(char*);*/
 
-/* toem_errors1.c */
-/*int _error_atoi(char*);*/
 void print_error(inf *, char *);
 int print_d(int, int);
 char *convert_number(long int, int, int);
-/*void removeComments(char*);*/
+
 ssize_t _rd_buf(inf* info, char* buf, size_t* i);
-/* toem_builtin.c */
-/*int _myexit(inf*);*/
-/*int _mycd(inf*);*/
+
 int _myhelp(inf*);
 
-/* toem_builtin1.c */
-/*int _myhistory(inf*);*/
-/*int _myalias(inf*);*/
 
-/*toem_getline.c */
 ssize_t get_line(inf *);
 int _getline(inf *, char **, size_t *);
 void Handler(int);
 
-/* toem_getinfo.c */
+
 void null_info(inf *);
 void reset_info(inf *, char **);
 void free_info(inf *, int);
 
-/* toem_environ.c */
+
 char *_getenv(inf *, const char *);
-/*int _myenv(inf*);*/
-/*int _my_setenv(inf*);*/
-/*int _my_unsetenv(inf*);*/
+
 int prepare_env(inf *);
 
-/* toem_getenv.c */
+
 char ** take_environ(inf *);
-/*int _unsetenv(inf*, char*);*/
-int _setenv(inf*, char*, char*);
-/*int unset_aliases(inf* info, char* str);*/
-/* toem_history.c */
+
+
 char * get_h_f(inf *info);
 int enf_history(inf *info);
 int _r_history(inf *info);
 int Creat_his_l(inf *info, char *buf, int linecount);
 int resum(inf *info);
 
-/* toem_lists.c */
-/*list* add_node(list**, const char*, int);*/
+
 list *add_node_end(list **, const char *, int);
-/*size_t print_list_sstring(const list*);*/
+
 int delete_node_at_index(list **, unsigned int);
 void free_list(list **);
 
-/* toem_lists1.c */
+
 size_t len_of_list(const list *);
 char **list_to_strings(list *);
 size_t print_list(const list *);
-/*list* node_s_with(list*, char*, char);*/
-/*ssize_t get_in_index(list*, list*);*/
 
-/* toem_vars.c */
-/*int chain_sure(inf*, char*, size_t*);*/
-/*void which_if_chain(inf*, char*, size_t*, size_t, size_t);*/
-/*int change_alias(inf*);*/
-/*int dollar_handler(inf*);*/
 int replace_string(char **, char *);
 
 #endif

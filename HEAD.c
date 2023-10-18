@@ -15,7 +15,7 @@ int head_shell(inf *f, char **argv)
 	while (r != -1 && builtin_ret != -2)
 	{
 		null_info(f);
-		if (interactive(f))
+		if (isatty(STDIN_FILENO) && f->r_fd <= 2)
 			_puts("$ ");
 		_eputchar(BUF_FLUSH);
 		r = get_line(f);
@@ -26,13 +26,13 @@ int head_shell(inf *f, char **argv)
 			if (builtin_ret == -1)
 				find_cmd(f);
 		}
-		else if (interactive(f))
+		else if (isatty(STDIN_FILENO) && f->r_fd <= 2)
 			_putchar('\n');
 		free_info(f, 0);
 	}
 	enf_history(f);
 	free_info(f, 1);
-	if (!interactive(f) && f->status)
+	if (!(isatty(STDIN_FILENO) && f->r_fd <= 2) && f->status)
 		exit(f->status);
 	if (builtin_ret == -2)
 	{
@@ -43,13 +43,3 @@ int head_shell(inf *f, char **argv)
 	return (builtin_ret);
 }
 
-/**
- * interactive - returns true if shell is interactive mode
- * @info: struct address
- *
- * Return: 1 if interactive mode, 0 otherwise
- */
-int interactive(inf *f)
-{
-	return (isatty(STDIN_FILENO) && f->r_fd <= 2);
-}

@@ -12,9 +12,8 @@ ssize_t buf_in(inf *f, char **buff, size_t *lennn)
 	ssize_t r = 0;
 	size_t len_p = 0;
 
-	if (!*lennn) /* if nothing left in the buffer, fill it */
+	if (!*lennn)
 	{
-		/*bfree((void **)info->cmd_buf);*/
 		free(*buff);
 		*buff = NULL;
 		signal(2, Handler);
@@ -27,7 +26,7 @@ ssize_t buf_in(inf *f, char **buff, size_t *lennn)
 		{
 			if ((*buff)[r - 1] == '\n')
 			{
-				(*buff)[r - 1] = '\0'; /* remove trailing newline */
+				(*buff)[r - 1] = '\0';
 				r--;
 			}
 			f->linecount_f = 1;
@@ -48,38 +47,34 @@ ssize_t buf_in(inf *f, char **buff, size_t *lennn)
  */
 ssize_t get_line(inf *f)
 {
-	static char *buf; /* the ';' command chain buffer */
+	static char *buf;
 	static size_t i, j, len;
 	ssize_t r = 0;
 	char **buf_p = &(f->arg), *p;
 
 	_putchar(BUF_FLUSH);
 	r = buf_in(f, &buf, &len);
-	if (r == -1) /* EOF */
+	if (r == -1)
 		return (-1);
-	if (len)	/* we have commands left in the chain buffer */
+	if (len)
 	{
-		j = i; /* init new iterator to current buf position */
-		p = buf + i; /* get pointer for return */
+		j = i;
+		p = buf + i;
 
-		while (j < len) /* iterate to semicolon or end */
+		j = len;
+		i = j + 1;
+		if (i >= len)
 		{
-			j++;
-		}
-
-		i = j + 1; /* increment past nulled ';'' */
-		if (i >= len) /* reached end of buffer? */
-		{
-			i = len = 0; /* reset position and length */
+			i = len = 0;
 			f->cmd_buf = CMD_NORM;
 		}
 
-		*buf_p = p; /* pass back pointer to current command position */
-		return (_strlen(p)); /* return length of current command */
+		*buf_p = p;
+		return (_strlen(p));
 	}
 
-	*buf_p = buf; /* else not a chain, pass back buffer from _getline() */
-	return (r); /* return length of buffer from _getline() */
+	*buf_p = buf;
+	return (r);
 }
 
 /**
@@ -96,7 +91,7 @@ ssize_t _rd_buf(inf *f, char *buff, size_t *it)
 
 	if (*it)
 		return (0);
-	gang = read(f->r_fd, buff, READ_BUF_SIZE);
+	gang = read(f->r_fd, buff, 1024);
 	if (gang >= 0)
 		*it = gang;
 	return (gang);
