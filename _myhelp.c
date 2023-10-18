@@ -5,7 +5,7 @@
  *          conson prototype.
  *  Return: Alwa
  */
-/*
+
 int _myhelp(inf *f)
 {
 	char **array;
@@ -16,4 +16,3 @@ int _myhelp(inf *f)
 		_puts(*array);
 	return (0);
 }
-*/
