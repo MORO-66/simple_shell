@@ -167,7 +167,6 @@ int _error_atoi(char *);
 void print_error(inf *, char *);
 int print_d(int, int);
 char *convert_number(long int, int, int);
-void removeComments(char *);
 ssize_t _rd_buf(inf* info, char* buf, size_t* i);
 /* toem_builtin.c */
 int _myexit(inf *);
