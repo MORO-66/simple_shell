@@ -1,8 +1,8 @@
 #include "headers.h"
 
 /**
- *_eputs - pran input string
- * @str: the g to be printed
+ *_errorputs - pran input string
+ * @strring: the g to be printed
  *
  * Return: No
  */
@@ -21,7 +21,7 @@ void _errorputs(char *strring)
 
 /**
  * _eputchar - wcharacter c to stderr
- * @c: The charaint
+ * @cha: The charaint
  *
  * Return: On su
  * On error, -1 d, and errno is set appropriately.

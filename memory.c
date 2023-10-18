@@ -1,10 +1,10 @@
 #include "headers.h"
 
 /**
- **_memset - fillth a constant byte
- *@s: the pointerory area
- *@b: the byte toth
- *@n: the amount  be filled
+ **_mem_set - fillth a constant byte
+ *@sand: the pointerory area
+ *@m: the byte toth
+ *@nam: the amount  be filled
  *Return: (s) a phe memory area s
  */
 char * _mem_set(char *sand, char m, unsigned int nam)
@@ -17,8 +17,8 @@ char * _mem_set(char *sand, char m, unsigned int nam)
 }
 
 /**
- * ffree - frees aof strings
- * @pp: string of 
+ * kno_free - frees aof strings
+ * @ptrptr: string of 
  */
 void kno_free(char **ptrptr)
 {
@@ -33,9 +33,9 @@ void kno_free(char **ptrptr)
 
 /**
  * _realloc - ra block of memory
- * @ptr: pointeus malloc'ated block
- * @old_size: b previous block
- * @new_size: b new block
+ * @p: pointeus malloc'ated block
+ * @one_old: b previous block
+ * @one_new: b new block
  *
  * Return: poinl'block nameen.
  */

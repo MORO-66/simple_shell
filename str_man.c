@@ -1,8 +1,8 @@
 #include "headers.h"
 /**
- **_strchr - locates a character in a string
- *@s: the string to be parsed
- *@c: the character to look for
+ **_chr_search - locates a character in a string
+ *@string: the string to be parsed
+ *@cha: the character to look for
  *Return: (s) a pointer to the memory area s
  */
 char * _chr_search(char *string, char cha)
@@ -17,9 +17,9 @@ char * _chr_search(char *string, char cha)
 
 /**
  * dup_chars - duplicates characters
- * @pathstr: the PATH string
- * @start: starting index
- * @stop: stopping index
+ * @string_path: the PATH string
+ * @sta: starting index
+ * @sop: stopping index
  *
  * Return: pointer to new buffer
  */

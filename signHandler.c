@@ -1,6 +1,6 @@
 #include "headers.h"
 /**
- * sigintHandler - bloctrl-C
+ * Handler - bloctrl-C
  * @sig_num: the signalber
  *
  * Return: void

@@ -2,7 +2,7 @@
 
 
 /**
- * get_environ - rettring array copy of our environ
+ * take_environ - rettring array copy of our environ
  * @info: Structure  potential arguments. Used to maintain
  *          constantprototype.
  * Return: Always 0

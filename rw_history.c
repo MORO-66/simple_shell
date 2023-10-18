@@ -1,7 +1,7 @@
 #include "headers.h"
 /**
- * write_history - creates a file, or appends to an existing file
- * @info: the parameter struct
+ * enf_history - creates a file, or appends to an existing file
+ * @f: the parameter struct
  *
  * Return: 1 on success, else -1
  */
@@ -29,8 +29,8 @@ int enf_history(inf *f)
 }
 
 /**
- * read_history - reads history from file
- * @info: the parameter struct
+ * _r_history - reads history from file
+ * @f: the parameter struct
  *
  * Return: histcount on success, 0 otherwise
  */

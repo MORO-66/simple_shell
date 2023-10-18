@@ -2,10 +2,10 @@
 
 
 /**
- * build_history_list - a tstory linked list
- * @info: Structure contaenrguments. Used to maintain
- * @buf: buffer
- * @linecount: the historntcount
+ * Creat_his_l - a tstory linked list
+ * @f: Structure contaenrguments. Used to maintain
+ * @buff: buffer
+ * @line_cou: the historntcount
  *
  * Return: Always 0
  */
@@ -23,8 +23,8 @@ int Creat_his_l(inf *f, char *buff, int line_cou)
 }
 
 /**
- * renumber_history - renumbthe history linked list after changes
- * @info: Structure containiotential arguments. Used to maintain
+ * resum - renumbthe history linked list after changes
+ * @f: Structure containiotential arguments. Used to maintain
  *
  * Return: the new histcount
  */

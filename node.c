@@ -2,9 +2,9 @@
 
 /**
  * add_node_end - addde to the end of the list
- * @head: address of r to head node
- * @str: str field of
- * @num: node index u history
+ * @h_h: address of r to head node
+ * @st: str field of
+ * @mun: node index u history
  *
  * Return: size of li
  */
@@ -44,8 +44,8 @@ list *add_node_end(list **h_h, const char *st, int mun)
 
 /**
  * delete_node_at_index - delete index
- * @head: address of pointer to 
- * @index: index of node to dele
+ * @h_h: address of pointer to 
+ * @idx: index of node to dele
  *
  * Return: 1 on success, 0 on fa
  */

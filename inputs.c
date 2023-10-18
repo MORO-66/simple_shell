@@ -1,9 +1,9 @@
 #include "headers.h"
 /**
- * input_buf - bufchained commands
- * @info: parameteuct
- * @buf: address ofer
- * @len: address o var
+ * buf_in - bufchained commands
+ * @f: parameteuct
+ * @buff: address ofer
+ * @lennn: address o var
  *
  * Return: bytes r
  */
@@ -41,7 +41,7 @@ ssize_t buf_in(inf *f, char **buff, size_t *lennn)
 
 /**
  * get_input - gets  minus the newline
- * @info: parameter 
+ * @f: parameter 
  *
  * Return: bytes rea
  */
@@ -78,10 +78,10 @@ ssize_t get_line(inf *f)
 }
 
 /**
- * read_buf - reads a buffer
- * @info: parameter struct
- * @buf: buffer
- * @i: size
+ * _rd_buf - reads a buffer
+ * @f: parameter struct
+ * @buff: buffer
+ * @it: size
  *
  * Return: r
  */

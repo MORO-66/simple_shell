@@ -1,8 +1,8 @@
 #include "headers.h"
 /**
  * is_delim - checks if character is a delimeter
- * @c: the char to check
- * @delim: the delimeter string
+ * @cch: the char to check
+ * @d: the delimeter string
  * Return: 1 if true, 0 if false
  */
 int is_delim(char cch, char *d)

@@ -1,8 +1,8 @@
 #include "headers.h"
 /**
  * _getenv - gf an environ variable
- * @info: Strug potential arguments. Used to maintain
- * @name: env 
+ * @f: Strug potential arguments. Used to maintain
+ * @filename: env 
  *
  * Return: the
  */
@@ -21,7 +21,7 @@ char *_getenv(inf *f, const char *filename)
 	return (NULL);
 }
 /**
- * get_history_f- gfile
+ * get_h_f - gfile
  * @info: paramestr
  *
  * Return: alloc ststory file

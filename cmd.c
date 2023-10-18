@@ -1,8 +1,8 @@
 #include "headers.h"
 /**
- * is_cmd - determile is an executable command
- * @info: the info 
- * @path: path to t
+ * cmd_sure - determile is an executable command
+ * @f: the info 
+ * @path_s: path to t
  *
  * Return: 1 if truise
  */
@@ -24,7 +24,7 @@ int cmd_sure(inf *f, char *path_s)
 
 /**
  * find_cmd - finand in PATH
- * @info: the parreturn info struct
+ * @f: the parreturn info struct
  *
  * Return: void
  */
@@ -66,7 +66,7 @@ void find_cmd(inf *f)
 }
 
 /**
- * fork_cmd - forn exec thread to run cmd
+ * cmd_fork - forn exec thread to run cmd
  * @info: the par & return info struct
  *
  * Return: void

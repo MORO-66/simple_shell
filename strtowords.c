@@ -1,7 +1,7 @@
 #include "headers.h"
 
 /**
- * **strtow - splits a st Repeat delimiters are ignored
+ * **string_to_words - splits a st Repeat delimiters are ignored
  * @str: the input string
  * @d: the delimeter stri
  * Return: a pointer to ags, or NULL on failure

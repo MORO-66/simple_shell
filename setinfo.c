@@ -1,8 +1,8 @@
 #include "headers.h"
 /**
- * set_info - initiinfo_t struct
- * @info: struct ad
- * @av: argument ve
+ * reset_info - initiinfo_t struct
+ * @f: struct ad
+ * @argv: argument ve
  */
 void reset_info(inf *f, char **argv)
 {

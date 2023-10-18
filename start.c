@@ -1,8 +1,8 @@
 #include "headers.h"
 /**
- * starts_with - checks if n with haystack
- * @haystack: string to sear
- * @needle: the substring to
+ * start - checks if n with haystack
+ * @stack: string to sear
+ * @dle: the substring to
  *
  * Return: address of next cack or NULL
  */

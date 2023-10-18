@@ -1,7 +1,7 @@
 #include "headers.h"
 
 /**
- * list_len - determines length of linked list
+ * len_of_list - determines length of linked list
  * @h: pointer to first node
  *
  * Return: size of list
@@ -20,7 +20,7 @@ size_t len_of_list(const list *h)
 
 /**
  * list_to_strings - returns an array of strings of the list->str
- * @head: pointer to first node
+ * @h_h: pointer to first node
  *
  * Return: array of strings
  */

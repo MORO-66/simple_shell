@@ -1,9 +1,9 @@
 #include "headers.h"
 /**
  * _getline - gets line of input from STDIN
- * @info: paramete
- * @ptr: address o to buffer, preallocated or NULL
- * @length: size ocated ptr buffer if not NULL
+ * @f: paramete
+ * @ptr_s: address o to buffer, preallocated or NULL
+ * @lent: size ocated ptr buffer if not NULL
  *
  * Return: s
  */

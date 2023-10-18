@@ -1,7 +1,7 @@
 #include "headers.h"
 
 /**
- * clear_info - inlizes info_t struct
+ * null_info - inlizes info_t struct
  * @info: struct ass
  */
 void null_info(inf *info)
@@ -16,8 +16,8 @@ void null_info(inf *info)
 
 /**
  * free_info - fre_t struct fields
- * @info: struct a
- * @all: true if fall fields
+ * @f: struct a
+ * @all_in: true if fall fields
  */
 void free_info(inf *f, int all_in)
 {
@@ -43,7 +43,7 @@ void free_info(inf *f, int all_in)
 
 /**
  * free_list - f nodes of a list
- * @head_ptr: ad pointer to head node
+ * @h_ptr: ad pointer to head node
  *
  * Return: void
  */

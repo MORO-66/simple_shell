@@ -1,9 +1,9 @@
 #include "headers.h"
 /**
- * find_path - finds the PATH string
- * @info: the info s
- * @pathstr: the PAT
- * @cmd: the cmd to 
+ * where_path - finds the PATH string
+ * @f: the info s
+ * @string_path: the PAT
+ * @command: the cmd to 
  *
  * Return: full pathound or NULL
  */
