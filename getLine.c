@@ -7,7 +7,7 @@
  *
  * Return: s
  */
-int _getline(inf *f, char **ptr_s, size_t *len)
+int _getline(inf *f, char **ptr_s, size_t *lent)
 {
 	static char buf[READ_BUF_SIZE];
 	static size_t i, len;
@@ -16,8 +16,8 @@ int _getline(inf *f, char **ptr_s, size_t *len)
 	char *p = NULL, *new_p = NULL, *c;
 
 	p = *ptr_s;
-	if (p && len)
-		m = *len;
+	if (p && lent)
+		m = *lent;
 	if (i == len)
 		i = len = 0;
 
@@ -40,8 +40,8 @@ int _getline(inf *f, char **ptr_s, size_t *len)
 	i = n;
 	p = new_p;
 
-	if (len)
-		*len = m;
+	if (lent)
+		*lent = m;
 	*ptr_s = p;
 	return (m);
 }
