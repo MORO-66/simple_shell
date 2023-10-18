@@ -5,7 +5,7 @@
  *@cha: the character to look for
  *Return: (s) a pointer to the memory area s
  */
-char * _chr_search(char *string, char cha)
+char *_chr_search(char *string, char cha)
 {
 	do {
 		if (*string == cha)

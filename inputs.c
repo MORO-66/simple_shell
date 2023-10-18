@@ -40,8 +40,8 @@ ssize_t buf_in(inf *f, char **buff, size_t *lennn)
 }
 
 /**
- * get_input - gets  minus the newline
- * @f: parameter 
+ * get_line - gets  minus the newline
+ * @f: parameter
  *
  * Return: bytes rea
  */

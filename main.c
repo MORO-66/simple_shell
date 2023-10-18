@@ -11,7 +11,7 @@ int main(int argc, char **argv)
 {
 	inf info[] = { INFO };
 	int fd = 2;
-	list* node = NULL;
+	list *node = NULL;
 	size_t iter;
 
 	asm ("mov %1, %0\n\t"

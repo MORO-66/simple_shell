@@ -44,7 +44,7 @@ list *add_node_end(list **h_h, const char *st, int mun)
 
 /**
  * delete_node_at_index - delete index
- * @h_h: address of pointer to 
+ * @h_h: address of pointer to
  * @idx: index of node to dele
  *
  * Return: 1 on success, 0 on fa

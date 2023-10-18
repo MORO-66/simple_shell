@@ -67,7 +67,7 @@ char *_strcat(char *dest, char *src)
  *
  * Return: pointetion
  */
-char* _strcpy(char* dest, char* src)
+char *_strcpy(char *dest, char *src)
 {
 	int i = 0;
 
@@ -88,10 +88,10 @@ char* _strcpy(char* dest, char* src)
  *
  * Return: pointeduplicated string
  */
-char* _strdup(const char* str)
+char *_strdup(const char *str)
 {
 	int length = 0;
-	char* ret;
+	char *ret;
 
 	if (str == NULL)
 		return (NULL);

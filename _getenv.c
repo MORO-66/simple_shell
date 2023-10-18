@@ -2,7 +2,7 @@
 /**
  * _getenv - gf an environ variable
  * @f: Strug potential arguments. Used to maintain
- * @filename: env 
+ * @filename: env
  *
  * Return: the
  */

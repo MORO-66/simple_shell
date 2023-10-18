@@ -2,8 +2,8 @@
 
 /**
  * **string_to_words - splits a st Repeat delimiters are ignored
- * @str: the input string
- * @d: the delimeter stri
+ * @string: the input string
+ * @is: the delimeter stri
  * Return: a pointer to ags, or NULL on failure
  */
 

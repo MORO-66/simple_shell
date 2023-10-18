@@ -3,11 +3,11 @@
  * where_path - finds the PATH string
  * @f: the info s
  * @string_path: the PAT
- * @command: the cmd to 
+ * @command: the cmd to
  *
  * Return: full pathound or NULL
  */
-char * where_path(inf *f, char *string_path, char *command)
+char *where_path(inf *f, char *string_path, char *command)
 {
 	int y = 0, now_pos = 0;
 	char *strpath;

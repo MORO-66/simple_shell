@@ -7,7 +7,7 @@
  *@nam: the amount  be filled
  *Return: (s) a phe memory area s
  */
-char * _mem_set(char *sand, char m, unsigned int nam)
+char *_mem_set(char *sand, char m, unsigned int nam)
 {
 	unsigned int iter;
 
@@ -18,7 +18,7 @@ char * _mem_set(char *sand, char m, unsigned int nam)
 
 /**
  * kno_free - frees aof strings
- * @ptrptr: string of 
+ * @ptrptr: string of
  */
 void kno_free(char **ptrptr)
 {

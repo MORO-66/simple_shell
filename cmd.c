@@ -1,7 +1,7 @@
 #include "headers.h"
 /**
  * cmd_sure - determile is an executable command
- * @f: the info 
+ * @f: the info
  * @path_s: path to t
  *
  * Return: 1 if truise
