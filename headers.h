@@ -74,107 +74,69 @@ typedef struct info
 	char *filename;
 	int status;
 	int env_ch;
-
-	char **cmd_buff; /* pointer to cmd ; chain buffer, for memory mangement */
 	int hist_c;
 	int r_fd;
-	int cmd_buf; /* CMD_type ||, &&, ; */
+	int cmd_buf;
 } inf;
 
 #define INFO \
-{NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 0, NULL, \
+{NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 0, \
 	0, 0, 0}
 
 
-/* toem_shloop.c */
 int head_shell(inf *, char **);
-/*int which_cmd(inf*);*/
 void find_cmd(inf *);
 void cmd_fork(inf *);
 
-/* toem_parser.c */
 int cmd_sure(inf *, char *);
 char *dup_chars(char *, int, int);
 char * where_path(inf *, char *, char *);
-
-/* toem_errors.c */
 void _errorputs(char *);
 int _eputchar(char);
 int _put_as_fd(char c, int fd);
 int _puts_as_fd(char *str, int fd);
 
-/* toem_string.c */
 int _strlen(char *);
 int _strcmp(char *, char *);
 char * start(const char *, const char *);
 char *_strcat(char *, char *);
 ssize_t buf_in(inf* f, char** buff, size_t* lennn);
-/* toem_string1.c */
 char *_strcpy(char *, char *);
 char *_strdup(const char *);
 void _puts(char *);
 int _putchar(char);
 
-/* toem_exits.c */
 char *_strncpy(char *, char *, int);
 char *_strncat(char *, char *, int);
 char * _chr_search(char *, char);
-
-/* toem_tokenizer.c */
 char** string_to_words(char*, char*);
-
-/* toem_realloc.c */
 char * _mem_set(char *, char, unsigned int);
 void kno_free(char **);
 void *_realloc(void *, unsigned int, unsigned int);
-
-
 int is_delim(char, char *);
-
 void print_error(inf *, char *);
 int print_d(int, int);
-/*char* convert_number(long int, int, int);*/
-
 ssize_t _rd_buf(inf* info, char* buf, size_t* i);
-
-/*int _myhelp(inf*);*/
-
-
 ssize_t get_line(inf *);
 int _getline(inf *, char **, size_t *);
 void Handler(int);
-
-
 void null_info(inf *);
 void reset_info(inf *, char **);
 void free_info(inf *, int);
-
-
 char *_getenv(inf *, const char *);
-
-
-
-
 char ** take_environ(inf *);
-
-
 char * get_h_f(inf *info);
 int enf_history(inf *info);
 int _r_history(inf *info);
 int Creat_his_l(inf *info, char *buf, int linecount);
 int resum(inf *info);
 
-
 list *add_node_end(list **, const char *, int);
-
 int delete_node_at_index(list **, unsigned int);
 void free_list(list **);
 
-
 size_t len_of_list(const list *);
 char **list_to_strings(list *);
-size_t print_list(const list *);
 
-int replace_string(char **, char *);
 
 #endif
