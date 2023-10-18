@@ -31,6 +31,7 @@ ssize_t buf_in(inf *f, char **buff, size_t *lennn)
 				r--;
 			}
 			f->linecount_f = 1;
+			removeComments(*buff);
 			Creat_his_l(f, *buff, f->hist_c++);
 			/* if (_strchr(*buf, ';')) is this a command chain? */
 			{
@@ -64,14 +65,14 @@ ssize_t get_line(inf *f)
 		j = i; /* init new iterator to current buf position */
 		p = buf + i; /* get pointer for return */
 
-		/*which_if_chain(f, buf, &j, i, len);*/
-		/*while (j < len)
+		which_if_chain(f, buf, &j, i, len);
+		while (j < len) /* iterate to semicolon or end */
 		{
 			if (chain_sure(f, buf, &j))
 				break;
 			j++;
 		}
-		*/
+
 		i = j + 1; /* increment past nulled ';'' */
 		if (i >= len) /* reached end of buffer? */
 		{

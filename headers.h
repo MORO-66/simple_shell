@@ -167,6 +167,7 @@ int _error_atoi(char *);
 void print_error(inf *, char *);
 int print_d(int, int);
 char *convert_number(long int, int, int);
+void removeComments(char *);
 ssize_t _rd_buf(inf* info, char* buf, size_t* i);
 /* toem_builtin.c */
 int _myexit(inf *);
@@ -220,8 +221,11 @@ size_t print_list(const list *);
 list * node_s_with(list *, char *, char);
 ssize_t get_in_index(list *, list *);
 
-
+/* toem_vars.c */
+int chain_sure(inf *, char *, size_t *);
+void which_if_chain(inf *, char *, size_t *, size_t, size_t);
 int change_alias(inf *);
+int dollar_handler(inf *);
 int replace_string(char **, char *);
 
 #endif
