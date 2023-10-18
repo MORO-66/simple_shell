@@ -8,7 +8,7 @@
  *			1 if buissful,
  *			-2 if bu
  */
-
+/*
 int which_cmd(inf *f)
 {
 	int iter, Builtin_retation = -1;
@@ -24,5 +24,6 @@ int which_cmd(inf *f)
 			Builtin_retation = builtintbl[iter].func(f);
 			break;
 		}
-	return (Builtin_retation);
+	return (Builtin_retation = );
 }
+*/

@@ -66,7 +66,7 @@ ssize_t get_line(inf *f)
 		if (i >= len)
 		{
 			i = len = 0;
-			f->cmd_buf = CMD_NORM;
+			f->cmd_buf = 0;
 		}
 
 		*buf_p = p;
