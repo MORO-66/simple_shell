@@ -36,7 +36,7 @@ ssize_t buf_in(inf *f, char **buff, size_t *lennn)
 			/* if (_strchr(*buf, ';')) is this a command chain? */
 			{
 				*lennn = r;
-				//info->cmd_buf = (int)buf;
+				/*info->cmd_buf = (int)buf;*/
 			}
 		}
 	}

@@ -36,8 +36,7 @@ void free_info(inf *f, int all_in)
 			free_list(&(f->aliases));
 		kno_free(f->environ);
 			f->environ = NULL;
-		//info->cmd_buf = NULL;
-			//must_free((void **)(info->cmd_buf));
+		/*info->cmd_buf = NULL;*/
 		if (f->r_fd > 2)
 			close(f->r_fd);
 		_putchar(BUF_FLUSH);
@@ -67,20 +66,4 @@ void free_list(list **h_ptr)
 		node = node2;
 	}
 	*h_ptr = NULL;
-}
-/**
- * bfree - frees ULLs the address
- * @ptr: address to free
- *
- * Return: 1 if f 0.
- */
-int must_free(void **ptr)
-{
-	if (ptr && *ptr)
-	{
-		free(*ptr);
-		*ptr = NULL;
-		return (1);
-	}
-	return (0);
 }
