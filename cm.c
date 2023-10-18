@@ -6,7 +6,7 @@
  *
  * Return: 1 if true, 0 otherwise
  */
-int cmd_sure(info_t *info, char *path)
+int cmd_sure(inf *info, char *path)
 {
 	struct stat st;
 
