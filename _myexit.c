@@ -8,7 +8,7 @@
  */
 int _myexit(inf *f)
 {
-	int check_status;
+	/*int check_status;*/
 
 	if (f->argv[1])  /* If there is an exit arguement */
 	{
