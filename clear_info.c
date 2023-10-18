@@ -32,8 +32,6 @@ void free_info(inf *f, int all_in)
 			free_list(&(f->enviro));
 		if (f->history)
 			free_list(&(f->history));
-		if (f->aliases)
-			free_list(&(f->aliases));
 		kno_free(f->environ);
 			f->environ = NULL;
 		/*info->cmd_buf = NULL;*/
