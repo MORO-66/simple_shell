@@ -15,6 +15,7 @@
 int cmd_sure(inf *f, char *path_s)
 {
 	struct stat st;
+	inf *c = f;
 
 	(void)f;
 	if (!path_s || stat(path_s, &st))
