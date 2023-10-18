@@ -30,8 +30,8 @@ void free_info(inf *f, int all_in)
 			free(f->arg);
 		if (f->enviro)
 			free_list(&(f->enviro));
-/*		if (f->history)*/
-/*			free_list(&(f->history));*/
+		if (f->history)
+			free_list(&(f->history));
 		kno_free(f->environ);
 			f->environ = NULL;
 		if (f->r_fd > 2)

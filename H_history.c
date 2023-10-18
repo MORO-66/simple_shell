@@ -9,7 +9,6 @@
  *
  * Return: Always 0
  */
- 
 int Creat_his_l(inf *f, char *buff, int line_cou)
 {
 	list *node = NULL;
@@ -29,7 +28,6 @@ int Creat_his_l(inf *f, char *buff, int line_cou)
  *
  * Return: the new histcount
  */
-/*
 int resum(inf *f)
 {
 	list *node = f->history;
@@ -42,4 +40,3 @@ int resum(inf *f)
 	}
 	return (f->hist_c = i);
 }
-*/

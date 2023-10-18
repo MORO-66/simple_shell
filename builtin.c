@@ -8,15 +8,15 @@
  *			1 if buissful,
  *			-2 if bu
  */
-/*
+
 int which_cmd(inf *f)
 {
 	int iter, Builtin_retation = -1;
-	builtin_table builtintbl[] = {*/
+	builtin_table builtintbl[] = {
 /*		{"exit", _myexit},*/
 /*		{"help", _myhelp},*/
 /*		{"history", _myhistory},*/
-/*		{NULL, NULL}
+		{NULL, NULL}
 	};
 
 	for (iter = 0; builtintbl[iter].type; iter++)
@@ -28,4 +28,3 @@ int which_cmd(inf *f)
 		}
 	return (Builtin_retation);
 }
-*/
