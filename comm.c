@@ -46,7 +46,7 @@ void find_cmd(inf *f)
 
 /**
  * cmd_fork - forn exec thread to run cmd
- * @info: the par & return info struct
+ * @f: the par & return info struct
  *
  * Return: void
  */
