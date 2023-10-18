@@ -146,7 +146,7 @@ char *_strncat(char *, char *, int);
 char * _chr_search(char *, char);
 
 /* toem_tokenizer.c */
-char ** string_to_words(char *, char *);
+char** string_to_words(char*, char*);
 
 /* toem_realloc.c */
 char * _mem_set(char *, char, unsigned int);
