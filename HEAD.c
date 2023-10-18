@@ -21,8 +21,8 @@ int head_shell(inf *f, char **argv)
 		r = get_line(f);
 		if (r != -1)
 		{
-			/*reset_info(f, argv);
-			builtin_ret = which_cmd(f);
+			reset_info(f, argv);
+			/*builtin_ret = which_cmd(f);
 			if (builtin_ret == -1)*/
 				find_cmd(f);
 		}
