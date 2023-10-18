@@ -5,6 +5,7 @@
  *          cotype.
  *  Return: Al
  */
+/*
 int _mycd(inf *f)
 {
 	char *str, *direction, buff[1024];
@@ -17,7 +18,7 @@ int _mycd(inf *f)
 	{
 		direction = _getenv(f, "HOME=");
 		if (!direction)
-			chdir_ = /* TODO: what should this be? */
+			chdir_ = 
 				chdir((direction = _getenv(f, "PWD=")) ? direction : "/");
 		else
 			chdir_ = chdir(direction);
@@ -31,7 +32,7 @@ int _mycd(inf *f)
 			return (1);
 		}
 		_puts(_getenv(f, "OLDPWD=")), _putchar('\n');
-		chdir_ = /* TODO: what should this be? */
+		chdir_ = 
 			chdir((direction = _getenv(f, "OLDPWD=")) ? direction : "/");
 	}
 	else
@@ -48,3 +49,4 @@ int _mycd(inf *f)
 	}
 	return (0);
 }
+*/

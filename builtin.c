@@ -18,7 +18,7 @@ int which_cmd(inf *f)
 		{"history", _myhistory},
 /*		{"setenv", _my_setenv},*/
 /*		{"unsetenv", _my_unsetenv},*/
-		{"cd", _mycd},
+/*		{"cd", _mycd},*/
 		/*{"alias", _myalias},*/
 		{NULL, NULL}
 	};
