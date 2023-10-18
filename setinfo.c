@@ -26,7 +26,7 @@ void reset_info(inf *f, char **argv)
 			;
 		f->argc = y;
 
-		change_alias(f);
+		/*change_alias(f);*/
 		dollar_handler(f);
 	}
 }
