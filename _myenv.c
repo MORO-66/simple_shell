@@ -5,12 +5,13 @@
  *          coion prototype.
  * Return: Alw
  */
+/*
 int _myenv(inf *f)
 {
 	print_list_sstring(f->enviro);
 	return (0);
 }
-
+*/
 
 /**
  * _mysetenv - Ine a new environment variable,
@@ -19,6 +20,7 @@ int _myenv(inf *f)
  *        constanion prototype.
  *  Return: Alway
  */
+/*
 int _my_setenv(inf *info)
 {
 	if (info->argc != 3)
@@ -30,13 +32,14 @@ int _my_setenv(inf *info)
 		return (0);
 	return (1);
 }
-
+*/
 /**
  * _myunsetenv -  environment variable
  * @info: Structuning potential arguments. Used to maintain
  *        constann prototype.
  *  Return: Alway
  */
+/*
 int _my_unsetenv(inf *info)
 {
 	int i;
@@ -51,7 +54,7 @@ int _my_unsetenv(inf *info)
 
 	return (0);
 }
-
+*/
 
 /**
  * _unsetenv - Removet variable
@@ -60,6 +63,7 @@ int _my_unsetenv(inf *info)
  *  Return: 1 on delee
  * @var: the string ey
  */
+/*
 int _unsetenv(inf *info, char *var)
 {
 	list *node = info->enviro;
@@ -84,7 +88,7 @@ int _unsetenv(inf *info, char *var)
 	}
 	return (info->env_ch);
 }
-
+*/
 /**
  * _setenv - Initenvironment variable,
  *             oristing one

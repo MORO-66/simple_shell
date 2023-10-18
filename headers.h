@@ -190,15 +190,15 @@ void free_info(inf *, int);
 
 /* toem_environ.c */
 char *_getenv(inf *, const char *);
-int _myenv(inf *);
-int _my_setenv(inf *);
-int _my_unsetenv(inf *);
+/*int _myenv(inf*);*/
+/*int _my_setenv(inf*);*/
+/*int _my_unsetenv(inf*);*/
 int prepare_env(inf *);
 
 /* toem_getenv.c */
 char ** take_environ(inf *);
-int _unsetenv(inf *, char *);
-int _setenv(inf *, char *, char *);
+/*int _unsetenv(inf*, char*);*/
+/*int _setenv(inf*, char*, char*);*/
 /*int unset_aliases(inf* info, char* str);*/
 /* toem_history.c */
 char * get_h_f(inf *info);
