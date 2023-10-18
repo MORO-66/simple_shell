@@ -122,9 +122,6 @@ int cmd_sure(inf *, char *);
 char *dup_chars(char *, int, int);
 char * where_path(inf *, char *, char *);
 
-/* loophsh.c */
-int loophsh(char **);
-
 /* toem_errors.c */
 void _errorputs(char *);
 int _eputchar(char);
@@ -150,7 +147,6 @@ char * _chr_search(char *, char);
 
 /* toem_tokenizer.c */
 char ** string_to_words(char *, char *);
-//char ** string_to_words2(char *, char);
 
 /* toem_realloc.c */
 char * _mem_set(char *, char, unsigned int);
