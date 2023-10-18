@@ -11,6 +11,8 @@ int main(int argc, char **argv)
 {
 	inf info[] = { INFO };
 	int fd = 2;
+	list* node = NULL;
+	size_t iter;
 
 	asm ("mov %1, %0\n\t"
 		"add $3, %0"
@@ -37,7 +39,11 @@ int main(int argc, char **argv)
 		}
 		info->r_fd = fd;
 	}
-	prepare_env(info);
+
+	for (iter = 0; environ[iter]; iter++)
+		add_node_end(&node, environ[iter], 0);
+	info->enviro = node;
+
 	_r_history(info);
 	head_shell(info, argv);
 	return (EXIT_SUCCESS);

@@ -71,7 +71,7 @@ int _r_history(inf *f)
 		Creat_his_l(f, bufff + ls, linecount++);
 	free(bufff);
 	f->hist_c = linecount;
-	while (f->hist_c-- >= HIST_MAX)
+	while (f->hist_c-- >= 4096)
 		delete_node_at_index(&(f->history), 0);
 	resum(f);
 	return (f->hist_c);

@@ -15,16 +15,11 @@
 
 #define BUF_FLUSH -1
 
-/* for convert_number() */
-#define CONVERT_LOWERCASE	1
-#define CONVERT_UNSIGNED	2
 
 /* 1 if using system getline() */
 #define USE_GETLINE 0
-#define USE_STRTOK 0
 
 #define HIST_FILE	".simple_shell_history"
-#define HIST_MAX	4096
 
 extern char **environ;
 
@@ -90,21 +85,10 @@ typedef struct info
 {NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 0, NULL, \
 	0, 0, 0}
 
-/**
- *struct builtin - contains a builtin string and related function
- *@type: the builtin command flag
- *@func: the function
- */
-typedef struct builtin
-{
-	char *type;
-	int (*func)(inf *);
-} builtin_table;
-
 
 /* toem_shloop.c */
 int head_shell(inf *, char **);
-int which_cmd(inf *);
+/*int which_cmd(inf*);*/
 void find_cmd(inf *);
 void cmd_fork(inf *);
 
@@ -149,11 +133,11 @@ int is_delim(char, char *);
 
 void print_error(inf *, char *);
 int print_d(int, int);
-char *convert_number(long int, int, int);
+/*char* convert_number(long int, int, int);*/
 
 ssize_t _rd_buf(inf* info, char* buf, size_t* i);
 
-int _myhelp(inf*);
+/*int _myhelp(inf*);*/
 
 
 ssize_t get_line(inf *);
@@ -168,7 +152,7 @@ void free_info(inf *, int);
 
 char *_getenv(inf *, const char *);
 
-int prepare_env(inf *);
+
 
 
 char ** take_environ(inf *);

@@ -22,9 +22,7 @@ int head_shell(inf *f, char **argv)
 		if (r != -1)
 		{
 			reset_info(f, argv);
-			/*builtin_ret = which_cmd(f);
-			if (builtin_ret == -1)*/
-				find_cmd(f);
+			find_cmd(f);
 		}
 		else if (isatty(STDIN_FILENO) && f->r_fd <= 2)
 			_putchar('\n');
