@@ -6,7 +6,7 @@
  *  Return: exits wiexit status
  *         (0) if in!= "exit"
  */
-int _myexit(inf *f)
+/*int _myexit(inf* f)*/
 {
 	/*int check_status;*/
 
@@ -16,7 +16,8 @@ int _myexit(inf *f)
 		return (-2);
 	}
 	*/
+	/*
 	f->error_num = -1;
 	return (-2);
 }
-
+*/
