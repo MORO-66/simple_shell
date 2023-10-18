@@ -31,7 +31,7 @@ ssize_t buf_in(inf *f, char **buff, size_t *lennn)
 				r--;
 			}
 			f->linecount_f = 1;
-			Creat_his_l(f, *buff, f->hist_c++);
+/*			Creat_his_l(f, *buff, f->hist_c++);*/
 			{
 				*lennn = r;
 			}

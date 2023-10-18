@@ -9,7 +9,7 @@
  *
  * Return: Always 0
  */
- /*
+ 
 int Creat_his_l(inf *f, char *buff, int line_cou)
 {
 	list *node = NULL;
@@ -22,7 +22,7 @@ int Creat_his_l(inf *f, char *buff, int line_cou)
 		f->history = node;
 	return (0);
 }
-*/
+
 /**
  * renumber_history - renumbthe history linked list after changes
  * @info: Structure containiotential arguments. Used to maintain
