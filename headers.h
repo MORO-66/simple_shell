@@ -159,11 +159,11 @@ int must_free(void **);
 /* toem_atoi.c */
 int interactive(inf *);
 int is_delim(char, char *);
-int _isalpha(int);
-int _atoint(char *);
+/*int _isalpha(int);*/
+/*int _atoint(char*);*/
 
 /* toem_errors1.c */
-int _error_atoi(char *);
+/*int _error_atoi(char*);*/
 void print_error(inf *, char *);
 int print_d(int, int);
 char *convert_number(long int, int, int);
@@ -175,7 +175,7 @@ ssize_t _rd_buf(inf* info, char* buf, size_t* i);
 int _myhelp(inf *);
 
 /* toem_builtin1.c */
-int _myhistory(inf *);
+/*int _myhistory(inf*);*/
 /*int _myalias(inf*);*/
 
 /*toem_getline.c */
@@ -208,9 +208,9 @@ int Creat_his_l(inf *info, char *buf, int linecount);
 int resum(inf *info);
 
 /* toem_lists.c */
-list *add_node(list **, const char *, int);
+/*list* add_node(list**, const char*, int);*/
 list *add_node_end(list **, const char *, int);
-size_t print_list_sstring(const list *);
+/*size_t print_list_sstring(const list*);*/
 int delete_node_at_index(list **, unsigned int);
 void free_list(list **);
 
@@ -218,8 +218,8 @@ void free_list(list **);
 size_t len_of_list(const list *);
 char **list_to_strings(list *);
 size_t print_list(const list *);
-list * node_s_with(list *, char *, char);
-ssize_t get_in_index(list *, list *);
+/*list* node_s_with(list*, char*, char);*/
+/*ssize_t get_in_index(list*, list*);*/
 
 /* toem_vars.c */
 /*int chain_sure(inf*, char*, size_t*);*/

@@ -6,8 +6,10 @@
  *        constantrototype.
  *  Return: Always
  */
+/*
 int _myhistory(inf *f)
 {
 	print_list(f->history);
 	return (0);
 }
+*/

@@ -14,7 +14,7 @@ int which_cmd(inf *f)
 	builtin_table builtintbl[] = {
 /*		{"exit", _myexit},*/
 		{"help", _myhelp},
-		{"history", _myhistory},
+/*		{"history", _myhistory},*/
 		{NULL, NULL}
 	};
 

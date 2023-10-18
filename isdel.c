@@ -12,17 +12,3 @@ int is_delim(char cch, char *d)
 			return (1);
 	return (0);
 }
-
-/**
- *_isalpha - checks for alphabetic character
- *@c: The character to input
- *Return: 1 if c is alphabetic, 0 otherwise
- */
-
-int _isalpha(int ch)
-{
-	if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z'))
-		return (1);
-	else
-		return (0);
-}

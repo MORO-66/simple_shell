@@ -1,39 +1,6 @@
 #include "headers.h"
 
 /**
- * add_node - addthe start of the list
- * @head: addressto head node
- * @str: str fiel
- * @num: node indistory
- *
- * Return: size o
- */
-list *add_node(list **h_h, const char *strring, int n)
-{
-	list *one_new;
-
-	if (!h_h)
-		return (NULL);
-	one_new = malloc(sizeof(list));
-	if (!one_new)
-		return (NULL);
-	_mem_set((void *)one_new, 0, sizeof(list));
-	one_new->num = n;
-	if (strring)
-	{
-		one_new->str = _strdup(strring);
-		if (!one_new->str)
-		{
-			free(one_new);
-			return (NULL);
-		}
-	}
-	one_new->next = *h_h;
-	*h_h = one_new;
-	return (one_new);
-}
-
-/**
  * add_node_end - addde to the end of the list
  * @head: address of r to head node
  * @str: str field of

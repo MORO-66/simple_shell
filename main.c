@@ -38,7 +38,7 @@ int main(int argc, char **argv)
 		info->r_fd = fd;
 	}
 	prepare_env(info);
-	_r_history(info);
+	/*_r_history(info);*/
 	head_shell(info, argv);
 	return (EXIT_SUCCESS);
 }

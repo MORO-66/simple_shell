@@ -1,23 +1,4 @@
 #include "headers.h"
-/**
- * print_list_str - pr only the str element of a list_t linked list
- * @h: pointer to firsde
- *
- * Return: size of lis
- */
-size_t print_list_sstring(const list *h)
-{
-	size_t y = 0;
-
-	while (h)
-	{
-		_puts(h->str ? h->str : "(nil)");
-		_puts("\n");
-		h = h->next;
-		y++;
-	}
-	return (y);
-}
 
 /**
  * print_list - printents of a list_t linked list

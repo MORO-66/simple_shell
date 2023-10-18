@@ -34,6 +34,7 @@ int enf_history(inf *f)
  *
  * Return: histcount on success, 0 otherwise
  */
+/*
 int _r_history(inf *f)
 {
 	int y, ls = 0, linecount = 0;
@@ -76,3 +77,4 @@ int _r_history(inf *f)
 	resum(f);
 	return (f->hist_c);
 }
+*/
