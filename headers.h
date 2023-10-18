@@ -220,9 +220,7 @@ size_t print_list(const list *);
 list * node_s_with(list *, char *, char);
 ssize_t get_in_index(list *, list *);
 
-/* toem_vars.c */
-/*int chain_sure(inf*, char*, size_t*);*/
-/*void which_if_chain(inf*, char*, size_t*, size_t, size_t);*/
+
 int change_alias(inf *);
 int replace_string(char **, char *);
 
