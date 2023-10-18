@@ -172,7 +172,7 @@ ssize_t _rd_buf(inf* info, char* buf, size_t* i);
 /* toem_builtin.c */
 /*int _myexit(inf*);*/
 /*int _mycd(inf*);*/
-int _myhelp(inf *);
+/*int _myhelp(inf*);*/
 
 /* toem_builtin1.c */
 /*int _myhistory(inf*);*/
