@@ -5,6 +5,7 @@
  *          conson prototype.
  *  Return: Alwa
  */
+/*
 int _myhelp(inf *f)
 {
 	char **array;
@@ -12,6 +13,7 @@ int _myhelp(inf *f)
 	array = f->argv;
 	_puts("help call works. Function not yet implemented \n");
 	if (0)
-		_puts(*array); /* temp att_unused workaround */
+		_puts(*array);
 	return (0);
 }
+*/
