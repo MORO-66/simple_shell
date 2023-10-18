@@ -17,7 +17,8 @@ char **string_to_words(char *string, char *is)
 	if (!is)
 		is = " ";
 	for (a = 0; string[a] != '\0'; a++)
-		if (!is_delim(string[a], is) && (is_delim(string[a + 1], is) || !string[a + 1]))
+		if (!is_delim(string[a], is) && 
+			(is_delim(string[a + 1], is) || !string[a + 1]))
 			words_numbers++;
 
 	if (words_numbers == 0)
