@@ -8,7 +8,7 @@
  * @linecount: the historntcount
  *
  * Return: Always 0
- 
+ */
  /*
 int Creat_his_l(inf *f, char *buff, int line_cou)
 {
