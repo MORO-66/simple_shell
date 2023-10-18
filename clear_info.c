@@ -34,7 +34,6 @@ void free_info(inf *f, int all_in)
 			free_list(&(f->history));
 		kno_free(f->environ);
 			f->environ = NULL;
-		/*info->cmd_buf = NULL;*/
 		if (f->r_fd > 2)
 			close(f->r_fd);
 		_putchar(BUF_FLUSH);

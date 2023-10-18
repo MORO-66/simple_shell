@@ -225,7 +225,7 @@ ssize_t get_in_index(list *, list *);
 /*int chain_sure(inf*, char*, size_t*);*/
 /*void which_if_chain(inf*, char*, size_t*, size_t, size_t);*/
 /*int change_alias(inf*);*/
-int dollar_handler(inf *);
+/*int dollar_handler(inf*);*/
 int replace_string(char **, char *);
 
 #endif
