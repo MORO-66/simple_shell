@@ -6,6 +6,7 @@
  *
  * Return: 1 if replacedse
  */
+/*
 int dollar_handler(inf *f)
 {
 	int y = 0;
@@ -40,7 +41,7 @@ int dollar_handler(inf *f)
 	}
 	return (0);
 }
-
+*/
 /**
  * replace_string - repling
  * @old: address of old 
