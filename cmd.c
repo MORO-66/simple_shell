@@ -1,4 +1,31 @@
 #include "headers.h"
+/**
+ * cmd_sure - Checks if a command is an executable file.
+ * @f: Pointer to the info struct (unused).
+ * @path_s: Path to the command.
+ *
+ * Return: 1 if the command is an executable file, 0 otherwise.
+ *
+ * Description:
+ * This function checks whether the specified command, identified by its path,
+ * is an executable file. It uses the stat function to retrieve information
+ * about the file, and checks if it is a regular file. If the path is NULL or
+ * if the stat function fails, the function returns 0.
+ */
+int cmd_sure(inf *f, char *path_s)
+{
+	struct stat st;
+
+	(void)f;
+	if (!path_s || stat(path_s, &st))
+		return (0);
+
+	if (st.st_mode & S_IFREG)
+	{
+		return (1);
+	}
+	return (0);
+}
 
 
 /**
