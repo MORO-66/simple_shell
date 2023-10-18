@@ -7,45 +7,45 @@
  * Return: a pointer to ags, or NULL on failure
  */
 
-char **string_to_words(char *str, char *d)
+char **string_to_words(char *string, char *is)
 {
-	int i, j, k, m, numwords = 0;
-	char **s;
+	int a, b, c, d, words_numbers = 0;
+	char **tring;
 
-	if (str == NULL || str[0] == 0)
+	if (string == NULL || string[0] == 0)
 		return (NULL);
-	if (!d)
-		d = " ";
-	for (i = 0; str[i] != '\0'; i++)
-		if (!is_delim(str[i], d) && (is_delim(str[i + 1], d) || !str[i + 1]))
-			numwords++;
+	if (!is)
+		is = " ";
+	for (a = 0; string[a] != '\0'; a++)
+		if (!is_delim(string[a], is) && (is_delim(string[a + 1], is) || !string[a + 1]))
+			words_numbers++;
 
-	if (numwords == 0)
+	if (words_numbers == 0)
 		return (NULL);
-	s = malloc((1 + numwords) * sizeof(char *));
-	if (!s)
+	tring = malloc((1 + words_numbers) * sizeof(char *));
+	if (!tring)
 		return (NULL);
-	for (i = 0, j = 0; j < numwords; j++)
+	for (a = 0, b = 0; b < words_numbers; b++)
 	{
-		while (is_delim(str[i], d))
-			i++;
-		k = 0;
-		while (!is_delim(str[i + k], d) && str[i + k])
-			k++;
-		s[j] = malloc((k + 1) * sizeof(char));
-		if (!s[j])
+		while (is_delim(string[a], is))
+			a++;
+		c = 0;
+		while (!is_delim(string[a + c], is) && string[a + c])
+			c++;
+		tring[b] = malloc((c + 1) * sizeof(char));
+		if (!tring[b])
 		{
-			for (k = 0; k < j; k++)
-				free(s[k]);
-			free(s);
+			for (c = 0; c < b; c++)
+				free(tring[c]);
+			free(tring);
 			return (NULL);
 		}
-		for (m = 0; m < k; m++)
-			s[j][m] = str[i++];
-		s[j][m] = 0;
+		for (d = 0; d < c; d++)
+			tring[b][d] = string[a++];
+		tring[b][d] = 0;
 	}
-	s[j] = NULL;
-	return (s);
+	tring[b] = NULL;
+	return (tring);
 }
 
 /**

@@ -7,18 +7,18 @@
  * Return: On success 1.
  * On error, -1 is returned, and errno is set appropriately.
  */
-int _put_as_fd(char c, int fd)
+int _put_as_fd(char ch, int filed)
 {
 	static int i;
 	static char buf[WRITE_BUF_SIZE];
 
-	if (c == BUF_FLUSH || i >= WRITE_BUF_SIZE)
+	if (ch == BUF_FLUSH || i >= WRITE_BUF_SIZE)
 	{
-		write(fd, buf, i);
+		write(filed, buf, i);
 		i = 0;
 	}
-	if (c != BUF_FLUSH)
-		buf[i++] = c;
+	if (ch != BUF_FLUSH)
+		buf[i++] = ch;
 	return (1);
 }
 
@@ -29,15 +29,15 @@ int _put_as_fd(char c, int fd)
  *
  * Return: the number of chars put
  */
-int _puts_as_fd(char *str, int fd)
+int _puts_as_fd(char *strring, int filedd)
 {
 	int i = 0;
 
-	if (!str)
+	if (!strring)
 		return (0);
-	while (*str)
+	while (*strring)
 	{
-		i += _put_as_fd(*str++, fd);
+		i += _put_as_fd(*strring++, filedd);
 	}
 	return (i);
 }

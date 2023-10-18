@@ -6,10 +6,10 @@
  *
  * Return: address of next cack or NULL
  */
-char *start(const char *haystack, const char *needle)
+char *start(const char *stack, const char *dle)
 {
-	while (*needle)
-		if (*needle++ != *haystack++)
+	while (*dle)
+		if (*dle++ != *stack++)
 			return (NULL);
-	return ((char *)haystack);
+	return ((char *)stack);
 }

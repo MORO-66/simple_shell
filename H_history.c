@@ -9,16 +9,16 @@
  *
  * Return: Always 0
  */
-int Creat_his_l(inf *info, char *buf, int linecount)
+int Creat_his_l(inf *f, char *buff, int line_cou)
 {
 	list *node = NULL;
 
-	if (info->history)
-		node = info->history;
-	add_node_end(&node, buf, linecount);
+	if (f->history)
+		node = f->history;
+	add_node_end(&node, buff, line_cou);
 
-	if (!info->history)
-		info->history = node;
+	if (!f->history)
+		f->history = node;
 	return (0);
 }
 
@@ -28,9 +28,9 @@ int Creat_his_l(inf *info, char *buf, int linecount)
  *
  * Return: the new histcount
  */
-int resum(inf *info)
+int resum(inf *f)
 {
-	list *node = info->history;
+	list *node = f->history;
 	int i = 0;
 
 	while (node)
@@ -38,5 +38,5 @@ int resum(inf *info)
 		node->num = i++;
 		node = node->next;
 	}
-	return (info->hist_c = i);
+	return (f->hist_c = i);
 }

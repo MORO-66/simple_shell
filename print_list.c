@@ -7,16 +7,16 @@
  */
 size_t print_list_sstring(const list *h)
 {
-	size_t i = 0;
+	size_t y = 0;
 
 	while (h)
 	{
 		_puts(h->str ? h->str : "(nil)");
 		_puts("\n");
 		h = h->next;
-		i++;
+		y++;
 	}
-	return (i);
+	return (y);
 }
 
 /**

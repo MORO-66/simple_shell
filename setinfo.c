@@ -4,29 +4,29 @@
  * @info: struct ad
  * @av: argument ve
  */
-void reset_info(inf *info, char **av)
+void reset_info(inf *f, char **argv)
 {
-	int i = 0;
+	int y = 0;
 
-	info->filename = av[0];
-	if (info->arg)
+	f->filename = argv[0];
+	if (f->arg)
 	{
-		info->argv = string_to_words(info->arg, " \t");
-		if (!info->argv)
+		f->argv = string_to_words(f->arg, " \t");
+		if (!f->argv)
 		{
 
-			info->argv = malloc(sizeof(char *) * 2);
-			if (info->argv)
+			f->argv = malloc(sizeof(char *) * 2);
+			if (f->argv)
 			{
-				info->argv[0] = _strdup(info->arg);
-				info->argv[1] = NULL;
+				f->argv[0] = _strdup(f->arg);
+				f->argv[1] = NULL;
 			}
 		}
-		for (i = 0; info->argv && info->argv[i]; i++)
+		for (y = 0; f->argv && f->argv[y]; y++)
 			;
-		info->argc = i;
+		f->argc = y;
 
-		change_alias(info);
-		dollar_handler(info);
+		change_alias(f);
+		dollar_handler(f);
 	}
 }

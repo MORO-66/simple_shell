@@ -5,26 +5,26 @@
  *
  * Return: 1 on success, else -1
  */
-int enf_history(inf *info)
+int enf_history(inf *f)
 {
-	ssize_t fd;
-	char *filename = get_h_f(info);
+	ssize_t filedd;
+	char *f_name = get_h_f(f);
 	list *node = NULL;
 
-	if (!filename)
+	if (!f_name)
 		return (-1);
 
-	fd = open(filename, O_CREAT | O_TRUNC | O_RDWR, 0644);
-	free(filename);
-	if (fd == -1)
+	filedd = open(f_name, O_CREAT | O_TRUNC | O_RDWR, 0644);
+	free(f_name);
+	if (filedd == -1)
 		return (-1);
-	for (node = info->history; node; node = node->next)
+	for (node = f->history; node; node = node->next)
 	{
-		_puts_as_fd(node->str, fd);
-		_put_as_fd('\n', fd);
+		_puts_as_fd(node->str, filedd);
+		_put_as_fd('\n', filedd);
 	}
-	_put_as_fd(BUF_FLUSH, fd);
-	close(fd);
+	_put_as_fd(BUF_FLUSH, filedd);
+	close(filedd);
 	return (1);
 }
 
@@ -34,45 +34,45 @@ int enf_history(inf *info)
  *
  * Return: histcount on success, 0 otherwise
  */
-int _r_history(inf *info)
+int _r_history(inf *f)
 {
-	int i, last = 0, linecount = 0;
-	ssize_t fd, rdlen, fsize = 0;
+	int y, ls = 0, linecount = 0;
+	ssize_t filed, read_len, filesize = 0;
 	struct stat st;
-	char *buf = NULL, *filename = get_h_f(info);
+	char *bufff = NULL, *f_name = get_h_f(f);
 
-	if (!filename)
+	if (!f_name)
 		return (0);
 
-	fd = open(filename, O_RDONLY);
-	free(filename);
-	if (fd == -1)
+	filed = open(f_name, O_RDONLY);
+	free(f_name);
+	if (filed == -1)
 		return (0);
-	if (!fstat(fd, &st))
-		fsize = st.st_size;
-	if (fsize < 2)
+	if (!fstat(filed, &st))
+		filesize = st.st_size;
+	if (filesize < 2)
 		return (0);
-	buf = malloc(sizeof(char) * (fsize + 1));
-	if (!buf)
+	bufff = malloc(sizeof(char) * (filesize + 1));
+	if (!bufff)
 		return (0);
-	rdlen = read(fd, buf, fsize);
-	buf[fsize] = 0;
-	if (rdlen <= 0)
-		return (free(buf), 0);
-	close(fd);
-	for (i = 0; i < fsize; i++)
-		if (buf[i] == '\n')
+	read_len = read(filed, bufff, filesize);
+	bufff[filesize] = 0;
+	if (read_len <= 0)
+		return (free(bufff), 0);
+	close(filed);
+	for (y = 0; y < filesize; y++)
+		if (bufff[y] == '\n')
 		{
-			buf[i] = 0;
-			Creat_his_l(info, buf + last, linecount++);
-			last = i + 1;
+			bufff[y] = 0;
+			Creat_his_l(f, bufff + ls, linecount++);
+			ls = y + 1;
 		}
-	if (last != i)
-		Creat_his_l(info, buf + last, linecount++);
-	free(buf);
-	info->hist_c = linecount;
-	while (info->hist_c-- >= HIST_MAX)
-		delete_node_at_index(&(info->history), 0);
-	resum(info);
-	return (info->hist_c);
+	if (ls != y)
+		Creat_his_l(f, bufff + ls, linecount++);
+	free(bufff);
+	f->hist_c = linecount;
+	while (f->hist_c-- >= HIST_MAX)
+		delete_node_at_index(&(f->history), 0);
+	resum(f);
+	return (f->hist_c);
 }

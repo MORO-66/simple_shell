@@ -8,9 +8,9 @@
  *			1 if buissful,
  *			-2 if bu
  */
-int which_cmd(inf *info)
+int which_cmd(inf *f)
 {
-	int i, built_in_ret = -1;
+	int iter, Builtin_retation = -1;
 	builtin_table builtintbl[] = {
 		{"exit", _myexit},
 		{"env", _myenv},
@@ -23,12 +23,12 @@ int which_cmd(inf *info)
 		{NULL, NULL}
 	};
 
-	for (i = 0; builtintbl[i].type; i++)
-		if (_strcmp(info->argv[0], builtintbl[i].type) == 0)
+	for (iter = 0; builtintbl[iter].type; iter++)
+		if (_strcmp(f->argv[0], builtintbl[iter].type) == 0)
 		{
-			info->line_c++;
-			built_in_ret = builtintbl[i].func(info);
+			f->line_c++;
+			Builtin_retation = builtintbl[iter].func(f);
 			break;
 		}
-	return (built_in_ret);
+	return (Builtin_retation);
 }

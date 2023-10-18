@@ -5,16 +5,16 @@
  *
  * Return: Nothing
  */
-void _puts(char *str)
+void _puts(char *string)
 {
-	int i = 0;
+	int y = 0;
 
-	if (!str)
+	if (!string)
 		return;
-	while (str[i] != '\0')
+	while (string[y] != '\0')
 	{
-		_putchar(str[i]);
-		i++;
+		_putchar(string[y]);
+		y++;
 	}
 }
 
@@ -25,17 +25,17 @@ void _puts(char *str)
  * Return: On success 1.
  * On error, -1 is returned, and errno is set appropriately.
  */
-int _putchar(char c)
+int _putchar(char ch)
 {
 	static int i;
 	static char buf[WRITE_BUF_SIZE];
 
-	if (c == BUF_FLUSH || i >= WRITE_BUF_SIZE)
+	if (ch == BUF_FLUSH || i >= WRITE_BUF_SIZE)
 	{
 		write(1, buf, i);
 		i = 0;
 	}
-	if (c != BUF_FLUSH)
-		buf[i++] = c;
+	if (ch != BUF_FLUSH)
+		buf[i++] = ch;
 	return (1);
 }

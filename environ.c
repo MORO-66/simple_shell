@@ -6,14 +6,14 @@
  *          constant func.
  * Return: Always 0
  */
-int prepare_env(inf *info)
+int prepare_env(inf *f)
 {
 	list *node = NULL;
-	size_t i;
+	size_t iter;
 
-	for (i = 0; environ[i]; i++)
-		add_node_end(&node, environ[i], 0);
-	info->enviro = node;
+	for (iter = 0; environ[iter]; iter++)
+		add_node_end(&node, environ[iter], 0);
+	f->enviro = node;
 	return (0);
 }
 
@@ -24,13 +24,13 @@ int prepare_env(inf *info)
  *          constantprototype.
  * Return: Always 0
  */
-char ** take_environ(inf *info)
+char ** take_environ(inf *f)
 {
-	if (!info->environ || info->env_ch)
+	if (!f->environ || info->env_ch)
 	{
-		info->environ = list_to_strings(info->enviro);
-		info->env_ch = 0;
+		f->environ = list_to_strings(f->enviro);
+		f->env_ch = 0;
 	}
 
-	return (info->environ);
+	return (f->environ);
 }

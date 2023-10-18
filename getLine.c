@@ -7,42 +7,42 @@
  *
  * Return: s
  */
-int _getline(inf *info, char **ptr, size_t *length)
+int _getline(inf *f, char **ptr_s, size_t *len)
 {
 	static char buf[READ_BUF_SIZE];
 	static size_t i, len;
-	size_t k;
-	ssize_t r = 0, s = 0;
+	size_t n;
+	ssize_t q = 0, m = 0;
 	char *p = NULL, *new_p = NULL, *c;
 
-	p = *ptr;
-	if (p && length)
-		s = *length;
+	p = *ptr_s;
+	if (p && len)
+		m = *len;
 	if (i == len)
 		i = len = 0;
 
-	r = _rd_buf(info, buf, &len);
-	if (r == -1 || (r == 0 && len == 0))
+	q = _rd_buf(f, buf, &len);
+	if (q == -1 || (q == 0 && len == 0))
 		return (-1);
 
 	c = _chr_search(buf + i, '\n');
-	k = c ? 1 + (unsigned int)(c - buf) : len;
-	new_p = _realloc(p, s, s ? s + k : k + 1);
+	n = c ? 1 + (unsigned int)(c - buf) : len;
+	new_p = _realloc(p, m, m ? m + n : n + 1);
 	if (!new_p) /* MALLOC FAILURE! */
 		return (p ? free(p), -1 : -1);
 
-	if (s)
-		_strncat(new_p, buf + i, k - i);
+	if (m)
+		_strncat(new_p, buf + i, n - i);
 	else
-		_strncpy(new_p, buf + i, k - i + 1);
+		_strncpy(new_p, buf + i, n - i + 1);
 
-	s += k - i;
-	i = k;
+	m += n - i;
+	i = n;
 	p = new_p;
 
-	if (length)
-		*length = s;
-	*ptr = p;
-	return (s);
+	if (len)
+		*len = m;
+	*ptr_s = p;
+	return (m);
 }
 

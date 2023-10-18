@@ -6,14 +6,14 @@
  *
  * Return: Always 0;
  */
-void removeComments(char *buf)
+void removeComments(char *buff)
 {
-	int i;
+	int y;
 
-	for (i = 0; buf[i] != '\0'; i++)
-		if (buf[i] == '#' && (!i || buf[i - 1] == ' '))
+	for (y = 0; buff[y] != '\0'; y++)
+		if (buff[y] == '#' && (!y || buff[y - 1] == ' '))
 		{
-			buf[i] = '\0';
+			buff[y] = '\0';
 			break;
 		}
 }

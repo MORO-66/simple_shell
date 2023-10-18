@@ -6,12 +6,12 @@
  *
  * Return: 1 if truise
  */
-int cmd_sure(inf *info, char *path)
+int cmd_sure(inf *f, char *path_s)
 {
 	struct stat st;
 
-	(void)info;
-	if (!path || stat(path, &st))
+	(void)f;
+	if (!path_s || stat(path_s, &st))
 		return (0);
 
 	if (st.st_mode & S_IFREG)
@@ -28,38 +28,38 @@ int cmd_sure(inf *info, char *path)
  *
  * Return: void
  */
-void find_cmd(inf *info)
+void find_cmd(inf *f)
 {
-	char *path = NULL;
-	int i, k;
+	char *path_s = NULL;
+	int y, s;
 
-	info->path_ = info->argv[0];
-	if (info->linecount_f == 1)
+	f->path_ = f->argv[0];
+	if (f->linecount_f == 1)
 	{
-		info->line_c++;
-		info->linecount_f = 0;
+		f->line_c++;
+		f->linecount_f = 0;
 	}
-	for (i = 0, k = 0; info->arg[i]; i++)
-		if (!is_delim(info->arg[i], " \t\n"))
-			k++;
-	if (!k)
+	for (y = 0, s = 0; f->arg[y]; y++)
+		if (!is_delim(f->arg[y], " \t\n"))
+			s++;
+	if (!s)
 		return;
 
-	path = where_path(info, _getenv(info, "PATH="), info->argv[0]);
-	if (path)
+	path_s = where_path(f, _getenv(f, "PATH="), f->argv[0]);
+	if (path_s)
 	{
-		info->path_ = path;
-		cmd_fork(info);
+		f->path_ = path_s;
+		cmd_fork(f);
 	}
 	else
 	{
-		if ((interactive(info) || _getenv(info, "PATH=")
-			|| info->argv[0][0] == '/') && cmd_sure(info, info->argv[0]))
-			cmd_fork(info);
-		else if (*(info->arg) != '\n')
+		if ((interactive(f) || _getenv(f, "PATH=")
+			|| f->argv[0][0] == '/') && cmd_sure(f, f->argv[0]))
+			cmd_fork(f);
+		else if (*(f->arg) != '\n')
 		{
-			info->status = 127;
-			print_error(info, "not found\n");
+			f->status = 127;
+			print_error(f, "not found\n");
 		}
 	}
 }
@@ -70,22 +70,22 @@ void find_cmd(inf *info)
  *
  * Return: void
  */
-void cmd_fork(inf *info)
+void cmd_fork(inf *f)
 {
-	pid_t child_pid;
+	pid_t pid_ch;
 
-	child_pid = fork();
-	if (child_pid == -1)
+	pid_ch = fork();
+	if (pid_ch == -1)
 	{
 		/* TODO: PUT ERROR FUNCTION */
 		perror("Error:");
 		return;
 	}
-	if (child_pid == 0)
+	if (pid_ch == 0)
 	{
-		if (execve(info->path_, info->argv, take_environ(info)) == -1)
+		if (execve(f->path_, f->argv, take_environ(f)) == -1)
 		{
-			free_info(info, 1);
+			free_info(f, 1);
 			if (errno == EACCES)
 				exit(126);
 			exit(1);
@@ -94,12 +94,12 @@ void cmd_fork(inf *info)
 	}
 	else
 	{
-		wait(&(info->status));
-		if (WIFEXITED(info->status))
+		wait(&(f->status));
+		if (WIFEXITED(f->status))
 		{
-			info->status = WEXITSTATUS(info->status);
-			if (info->status == 126)
-				print_error(info, "Permission denied\n");
+			f->status = WEXITSTATUS(f->status);
+			if (f->status == 126)
+				print_error(f, "Permission denied\n");
 		}
 	}
 }

@@ -6,24 +6,24 @@
  * Return: 0 if nbers in string, converted number otherwise
  *       -1 on er
  */
-int _error_atoi(char *s)
+int _error_atoi(char *str)
 {
-	int i = 0;
-	unsigned long int result = 0;
+	int y = 0;
+	unsigned long int sult = 0;
 
-	if (*s == '+')
-		s++;  /* TODO: why does this make main return 255? */
-	for (i = 0;  s[i] != '\0'; i++)
+	if (*str == '+')
+		str++;  /* TODO: why does this make main return 255? */
+	for (y = 0;  str[y] != '\0'; y++)
 	{
-		if (s[i] >= '0' && s[i] <= '9')
+		if (str[y] >= '0' && str[y] <= '9')
 		{
-			result *= 10;
-			result += (s[i] - '0');
-			if (result > INT_MAX)
+			sult *= 10;
+			sult += (str[y] - '0');
+			if (sult > INT_MAX)
 				return (-1);
 		}
 		else
 			return (-1);
 	}
-	return (result);
+	return (sult);
 }

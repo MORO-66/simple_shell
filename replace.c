@@ -6,36 +6,36 @@
  *
  * Return: 1 if replacedse
  */
-int dollar_handler(inf *info)
+int dollar_handler(inf *f)
 {
-	int i = 0;
-	list *node;
+	int y = 0;
+	list *no;
 
-	for (i = 0; info->argv[i]; i++)
+	for (y = 0; f->argv[y]; y++)
 	{
-		if (info->argv[i][0] != '$' || !info->argv[i][1])
+		if (f->argv[y][0] != '$' || !f->argv[y][1])
 			continue;
 
-		if (!_strcmp(info->argv[i], "$?"))
+		if (!_strcmp(f->argv[y], "$?"))
 		{
-			replace_string(&(info->argv[i]),
-				_strdup(convert_number(info->status, 10, 0)));
+			replace_string(&(f->argv[y]),
+				_strdup(convert_number(f->status, 10, 0)));
 			continue;
 		}
-		if (!_strcmp(info->argv[i], "$$"))
+		if (!_strcmp(f->argv[y], "$$"))
 		{
-			replace_string(&(info->argv[i]),
+			replace_string(&(f->argv[y]),
 				_strdup(convert_number(getpid(), 10, 0)));
 			continue;
 		}
-		node = node_s_with(info->enviro, &info->argv[i][1], '=');
-		if (node)
+		no = node_s_with(f->enviro, &f->argv[y][1], '=');
+		if (no)
 		{
-			replace_string(&(info->argv[i]),
-				_strdup(_chr_search(node->str, '=') + 1));
+			replace_string(&(f->argv[y]),
+				_strdup(_chr_search(no->str, '=') + 1));
 			continue;
 		}
-		replace_string(&info->argv[i], _strdup(""));
+		replace_string(&f->argv[y], _strdup(""));
 
 	}
 	return (0);
@@ -48,9 +48,9 @@ int dollar_handler(inf *info)
  *
  * Return: 1 if replacedrwise
  */
-int replace_string(char **old, char *new)
+int replace_string(char **curr, char *now)
 {
-	free(*old);
-	*old = new;
+	free(*curr);
+	*curr = now;
 	return (1);
 }

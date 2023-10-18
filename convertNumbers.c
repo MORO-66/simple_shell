@@ -7,22 +7,22 @@
  *
  * Return: number of characters printed
  */
-int print_d(int input, int fd)
+int print_d(int inputs, int filediscribe)
 {
 	int (*__putchar)(char) = _putchar;
 	int i, count = 0;
 	unsigned int _abs_, current;
 
-	if (fd == STDERR_FILENO)
+	if (filediscribe == STDERR_FILENO)
 		__putchar = _eputchar;
-	if (input < 0)
+	if (inputs < 0)
 	{
-		_abs_ = -input;
+		_abs_ = -inputs;
 		__putchar('-');
 		count++;
 	}
 	else
-		_abs_ = input;
+		_abs_ = inputs;
 	current = _abs_;
 	for (i = 1000000000; i > 1; i /= 10)
 	{
@@ -47,30 +47,30 @@ int print_d(int input, int fd)
  *
  * Return: string
  */
-char *convert_number(long int num, int base, int flags)
+char *convert_number(long int number, int b, int f)
 {
 	static char *array;
 	static char buffer[50];
-	char sign = 0;
-	char *ptr;
-	unsigned long n = num;
+	char nhgis = 0;
+	char *ptr_s;
+	unsigned long n = number;
 
-	if (!(flags & CONVERT_UNSIGNED) && num < 0)
+	if (!(f & CONVERT_UNSIGNED) && number < 0)
 	{
-		n = -num;
-		sign = '-';
+		n = -number;
+		nhgis = '-';
 
 	}
-	array = flags & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
-	ptr = &buffer[49];
-	*ptr = '\0';
+	array = f & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
+	ptr_s = &buffer[49];
+	*ptr_s = '\0';
 
 	do	{
-		*--ptr = array[n % base];
-		n /= base;
+		*--ptr_s = array[n % b];
+		n /= b;
 	} while (n != 0);
 
-	if (sign)
-		*--ptr = sign;
-	return (ptr);
+	if (nhgis)
+		*--ptr_s = nhgis;
+	return (ptr_s);
 }

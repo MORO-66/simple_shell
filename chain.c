@@ -7,30 +7,30 @@
  *
  * Return: 1 if meter,otherwise
  */
-int chain_sure(inf *info, char *buf, size_t *p)
+int chain_sure(inf *f, char *buff, size_t *ptr_si)
 {
-	size_t j = *p;
+	size_t jaafer = *ptr_si;
 
-	if (buf[j] == '|' && buf[j + 1] == '|')
+	if (buff[jaafer] == '|' && buff[jaafer + 1] == '|')
 	{
-		buf[j] = 0;
-		j++;
-		info->cmd_buf = CMD_OR;
+		buff[jaafer] = 0;
+		jaafer++;
+		f->cmd_buf = CMD_OR;
 	}
-	else if (buf[j] == '&' && buf[j + 1] == '&')
+	else if (buff[jaafer] == '&' && buff[jaafer + 1] == '&')
 	{
-		buf[j] = 0;
-		j++;
-		info->cmd_buf = CMD_AND;
+		buff[jaafer] = 0;
+		jaafer++;
+		f->cmd_buf = CMD_AND;
 	}
-	else if (buf[j] == ';') /* found end of this command */
+	else if (buff[jaafer] == ';') /* found end of this command */
 	{
-		buf[j] = 0; /* replace semicolon with null */
-		info->cmd_buf = CMD_CHAIN;
+		buff[jaafer] = 0; /* replace semicolon with null */
+		f->cmd_buf = CMD_CHAIN;
 	}
 	else
 		return (0);
-	*p = j;
+	*ptr_si = jaafer;
 	return (1);
 }
 
@@ -44,26 +44,26 @@ int chain_sure(inf *info, char *buf, size_t *p)
  *
  * Return: Void
  */
-void which_if_chain(inf *info, char *buf, size_t *p, size_t i, size_t len)
+void which_if_chain(inf *f, char *buff, size_t *ptr_si, size_t it, size_t lenth)
 {
-	size_t j = *p;
+	size_t jafer = *ptr_si;
 
-	if (info->cmd_buf == CMD_AND)
+	if (f->cmd_buf == CMD_AND)
 	{
-		if (info->status)
+		if (f->status)
 		{
-			buf[i] = 0;
-			j = len;
+			buff[it] = 0;
+			jafer = lenth;
 		}
 	}
-	if (info->cmd_buf == CMD_OR)
+	if (f->cmd_buf == CMD_OR)
 	{
-		if (!info->status)
+		if (!f->status)
 		{
-			buf[i] = 0;
-			j = len;
+			buff[it] = 0;
+			jafer = lenth;
 		}
 	}
 
-	*p = j;
+	*ptr_si = jafer;
 }

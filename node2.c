@@ -8,14 +8,14 @@
  */
 size_t len_of_list(const list *h)
 {
-	size_t i = 0;
+	size_t t = 0;
 
 	while (h)
 	{
 		h = h->next;
-		i++;
+		t++;
 	}
-	return (i);
+	return (t);
 }
 
 /**
@@ -24,34 +24,34 @@ size_t len_of_list(const list *h)
  *
  * Return: array of strings
  */
-char **list_to_strings(list *head)
+char **list_to_strings(list *h_h)
 {
-	list *node = head;
-	size_t i = len_of_list(head), j;
-	char **strs;
+	list *node = h_h;
+	size_t y = len_of_list(h_h), j;
+	char **s_s;
 	char *str;
 
-	if (!head || !i)
+	if (!h_h || !y)
 		return (NULL);
-	strs = malloc(sizeof(char *) * (i + 1));
-	if (!strs)
+	s_s = malloc(sizeof(char *) * (y + 1));
+	if (!s_s)
 		return (NULL);
-	for (i = 0; node; node = node->next, i++)
+	for (y = 0; node; node = node->next, y++)
 	{
 		str = malloc(_strlen(node->str) + 1);
 		if (!str)
 		{
-			for (j = 0; j < i; j++)
-				free(strs[j]);
-			free(strs);
+			for (j = 0; j < y; j++)
+				free(s_s[j]);
+			free(s_s);
 			return (NULL);
 		}
 
 		str = _strcpy(str, node->str);
-		strs[i] = str;
+		s_s[y] = str;
 	}
-	strs[i] = NULL;
-	return (strs);
+	s_s[y] = NULL;
+	return (s_s);
 }
 
 
@@ -63,16 +63,16 @@ char **list_to_strings(list *head)
  *
  * Return: match node or null
  */
-list *node_s_with(list *node, char *prefix, char c)
+list *node_s_with(list *no, char *pre, char ch)
 {
 	char *p = NULL;
 
-	while (node)
+	while (no)
 	{
-		p = start(node->str, prefix);
-		if (p && ((c == -1) || (*p == c)))
-			return (node);
-		node = node->next;
+		p = start(no->str, pre);
+		if (p && ((ch == -1) || (*p == ch)))
+			return (no);
+		no = no->next;
 	}
 	return (NULL);
 }
@@ -84,15 +84,15 @@ list *node_s_with(list *node, char *prefix, char c)
  *
  * Return: index of node or -1
  */
-ssize_t get_in_index(list *head, list *node)
+ssize_t get_in_index(list *h_h, list *no)
 {
 	size_t i = 0;
 
-	while (head)
+	while (h_h)
 	{
-		if (head == node)
+		if (h_h == no)
 			return (i);
-		head = head->next;
+		h_h = h_h->next;
 		i++;
 	}
 	return (-1);

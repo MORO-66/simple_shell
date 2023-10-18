@@ -6,13 +6,13 @@
  * Return: 0 if no numbers in string, converted number otherwise
  *        -1 on error
  */
-void print_error(inf *info, char *estr)
+void print_error(inf *f, char *e_string)
 {
-	_errorputs(info->filename);
+	_errorputs(f->filename);
 	_errorputs(": ");
-	print_d(info->line_c, STDERR_FILENO);
+	print_d(f->line_c, STDERR_FILENO);
 	_errorputs(": ");
-	_errorputs(info->argv[0]);
+	_errorputs(f->argv[0]);
 	_errorputs(": ");
-	_errorputs(estr);
+	_errorputs(e_string);
 }

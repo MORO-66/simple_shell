@@ -7,27 +7,27 @@
  *@n: the amount  be filled
  *Return: (s) a phe memory area s
  */
-char * _mem_set(char *s, char b, unsigned int n)
+char * _mem_set(char *sand, char m, unsigned int nam)
 {
-	unsigned int i;
+	unsigned int iter;
 
-	for (i = 0; i < n; i++)
-		s[i] = b;
-	return (s);
+	for (iter = 0; iter < nam; iter++)
+		sand[iter] = m;
+	return (sand);
 }
 
 /**
  * ffree - frees aof strings
  * @pp: string of 
  */
-void kno_free(char **pp)
+void kno_free(char **ptrptr)
 {
-	char **a = pp;
+	char **a = ptrptr;
 
-	if (!pp)
+	if (!ptrptr)
 		return;
-	while (*pp)
-		free(*pp++);
+	while (*ptrptr)
+		free(*ptrptr++);
 	free(a);
 }
 
@@ -39,24 +39,24 @@ void kno_free(char **pp)
  *
  * Return: poinl'block nameen.
  */
-void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
+void *_realloc(void *p, unsigned int one_old, unsigned int one_new)
 {
-	char *p;
+	char *ptr;
 
-	if (!ptr)
-		return (malloc(new_size));
-	if (!new_size)
-		return (free(ptr), NULL);
-	if (new_size == old_size)
-		return (ptr);
-
-	p = malloc(new_size);
 	if (!p)
+		return (malloc(one_new));
+	if (!one_new)
+		return (free(p), NULL);
+	if (one_new == one_old)
+		return (p);
+
+	ptr = malloc(one_new);
+	if (!ptr)
 		return (NULL);
 
-	old_size = old_size < new_size ? old_size : new_size;
-	while (old_size--)
-		p[old_size] = ((char *)ptr)[old_size];
-	free(ptr);
-	return (p);
+	one_old = one_old < one_new ? one_old : one_new;
+	while (one_old--)
+		ptr[one_old] = ((char *)p)[one_old];
+	free(p);
+	return (ptr);
 }

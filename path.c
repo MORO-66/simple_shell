@@ -7,37 +7,37 @@
  *
  * Return: full pathound or NULL
  */
-char * where_path(inf *info, char *pathstr, char *cmd)
+char * where_path(inf *f, char *string_path, char *command)
 {
-	int i = 0, curr_pos = 0;
-	char *path;
+	int y = 0, now_pos = 0;
+	char *strpath;
 
-	if (!pathstr)
+	if (!string_path)
 		return (NULL);
-	if ((_strlen(cmd) > 2) && start(cmd, "./"))
+	if ((_strlen(command) > 2) && start(command, "./"))
 	{
-		if (cmd_sure(info, cmd))
-			return (cmd);
+		if (cmd_sure(f, command))
+			return (command);
 	}
 	while (1)
 	{
-		if (!pathstr[i] || pathstr[i] == ':')
+		if (!string_path[y] || string_path[y] == ':')
 		{
-			path = dup_chars(pathstr, curr_pos, i);
-			if (!*path)
-				_strcat(path, cmd);
+			strpath = dup_chars(string_path, now_pos, y);
+			if (!*strpath)
+				_strcat(strpath, command);
 			else
 			{
-				_strcat(path, "/");
-				_strcat(path, cmd);
+				_strcat(strpath, "/");
+				_strcat(strpath, command);
 			}
-			if (cmd_sure(info, path))
-				return (path);
-			if (!pathstr[i])
+			if (cmd_sure(f, strpath))
+				return (strpath);
+			if (!string_path[y])
 				break;
-			curr_pos = i;
+			now_pos = y;
 		}
-		i++;
+		y++;
 	}
 	return (NULL);
 }

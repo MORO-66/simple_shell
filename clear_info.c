@@ -19,27 +19,27 @@ void null_info(inf *info)
  * @info: struct a
  * @all: true if fall fields
  */
-void free_info(inf *info, int all)
+void free_info(inf *f, int all_in)
 {
-	kno_free(info->argv);
-	info->argv = NULL;
-	info->path_ = NULL;
-	if (all)
+	kno_free(f->argv);
+	f->argv = NULL;
+	f->path_ = NULL;
+	if (all_in)
 	{
-		if (!info->cmd_buf)
-			free(info->arg);
-		if (info->enviro)
-			free_list(&(info->enviro));
-		if (info->history)
-			free_list(&(info->history));
-		if (info->aliases)
-			free_list(&(info->aliases));
-		kno_free(info->environ);
-			info->environ = NULL;
+		if (!f->cmd_buf)
+			free(f->arg);
+		if (f->enviro)
+			free_list(&(f->enviro));
+		if (f->history)
+			free_list(&(f->history));
+		if (f->aliases)
+			free_list(&(f->aliases));
+		kno_free(f->environ);
+			f->environ = NULL;
 		//info->cmd_buf = NULL;
 			//must_free((void **)(info->cmd_buf));
-		if (info->r_fd > 2)
-			close(info->r_fd);
+		if (f->r_fd > 2)
+			close(f->r_fd);
 		_putchar(BUF_FLUSH);
 	}
 }
@@ -51,22 +51,22 @@ void free_info(inf *info, int all)
  *
  * Return: void
  */
-void free_list(list **head_ptr)
+void free_list(list **h_ptr)
 {
-	list *node, *next_node, *head;
+	list *node, *node2, *h_node;
 
-	if (!head_ptr || !*head_ptr)
+	if (!h_ptr || !*h_ptr)
 		return;
-	head = *head_ptr;
-	node = head;
+	h_node = *h_ptr;
+	node = h_node;
 	while (node)
 	{
-		next_node = node->next;
+		node2 = node->next;
 		free(node->str);
 		free(node);
-		node = next_node;
+		node = node2;
 	}
-	*head_ptr = NULL;
+	*h_ptr = NULL;
 }
 /**
  * bfree - frees ULLs the address

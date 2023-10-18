@@ -7,38 +7,38 @@
  *
  * Return: 0 on success, 1 on error, or error code
  */
-int head_shell(inf *info, char **av)
+int head_shell(inf *f, char **argv)
 {
 	ssize_t r = 0;
 	int builtin_ret = 0;
 
 	while (r != -1 && builtin_ret != -2)
 	{
-		null_info(info);
-		if (interactive(info))
+		null_info(f);
+		if (interactive(f))
 			_puts("$ ");
 		_eputchar(BUF_FLUSH);
-		r = get_line(info);
+		r = get_line(f);
 		if (r != -1)
 		{
-			reset_info(info, av);
-			builtin_ret = which_cmd(info);
+			reset_info(f, argv);
+			builtin_ret = which_cmd(f);
 			if (builtin_ret == -1)
-				find_cmd(info);
+				find_cmd(f);
 		}
-		else if (interactive(info))
+		else if (interactive(f))
 			_putchar('\n');
-		free_info(info, 0);
+		free_info(f, 0);
 	}
-	enf_history(info);
-	free_info(info, 1);
-	if (!interactive(info) && info->status)
-		exit(info->status);
+	enf_history(f);
+	free_info(f, 1);
+	if (!interactive(f) && f->status)
+		exit(f->status);
 	if (builtin_ret == -2)
 	{
-		if (info->error_num == -1)
-			exit(info->status);
-		exit(info->error_num);
+		if (f->error_num == -1)
+			exit(f->status);
+		exit(f->error_num);
 	}
 	return (builtin_ret);
 }
@@ -49,7 +49,7 @@ int head_shell(inf *info, char **av)
  *
  * Return: 1 if interactive mode, 0 otherwise
  */
-int interactive(inf *info)
+int interactive(inf *f)
 {
-	return (isatty(STDIN_FILENO) && info->r_fd <= 2);
+	return (isatty(STDIN_FILENO) && f->r_fd <= 2);
 }

@@ -8,29 +8,29 @@
  *
  * Return: size o
  */
-list *add_node(list **head, const char *str, int num)
+list *add_node(list **h_h, const char *strring, int n)
 {
-	list *new_head;
+	list *one_new;
 
-	if (!head)
+	if (!h_h)
 		return (NULL);
-	new_head = malloc(sizeof(list));
-	if (!new_head)
+	one_new = malloc(sizeof(list));
+	if (!one_new)
 		return (NULL);
-	_mem_set((void *)new_head, 0, sizeof(list));
-	new_head->num = num;
-	if (str)
+	_mem_set((void *)one_new, 0, sizeof(list));
+	one_new->num = n;
+	if (strring)
 	{
-		new_head->str = _strdup(str);
-		if (!new_head->str)
+		one_new->str = _strdup(strring);
+		if (!one_new->str)
 		{
-			free(new_head);
+			free(one_new);
 			return (NULL);
 		}
 	}
-	new_head->next = *head;
-	*head = new_head;
-	return (new_head);
+	one_new->next = *h_h;
+	*h_h = one_new;
+	return (one_new);
 }
 
 /**
@@ -41,25 +41,25 @@ list *add_node(list **head, const char *str, int num)
  *
  * Return: size of li
  */
-list *add_node_end(list **head, const char *str, int num)
+list *add_node_end(list **h_h, const char *st, int mun)
 {
-	list *new_node, *node;
+	list *one_new, *node;
 
-	if (!head)
+	if (!h_h)
 		return (NULL);
 
-	node = *head;
-	new_node = malloc(sizeof(list));
-	if (!new_node)
+	node = *h_h;
+	one_new = malloc(sizeof(list));
+	if (!one_new)
 		return (NULL);
-	_mem_set((void *)new_node, 0, sizeof(list));
-	new_node->num = num;
-	if (str)
+	_mem_set((void *)one_new, 0, sizeof(list));
+	one_new->num = mun;
+	if (st)
 	{
-		new_node->str = _strdup(str);
-		if (!new_node->str)
+		one_new->str = _strdup(st);
+		if (!one_new->str)
 		{
-			free(new_node);
+			free(one_new);
 			return (NULL);
 		}
 	}
@@ -67,11 +67,11 @@ list *add_node_end(list **head, const char *str, int num)
 	{
 		while (node->next)
 			node = node->next;
-		node->next = new_node;
+		node->next = one_new;
 	}
 	else
-		*head = new_node;
-	return (new_node);
+		*h_h = one_new;
+	return (one_new);
 }
 
 
@@ -82,34 +82,34 @@ list *add_node_end(list **head, const char *str, int num)
  *
  * Return: 1 on success, 0 on fa
  */
-int delete_node_at_index(list **head, unsigned int index)
+int delete_node_at_index(list **h_h, unsigned int idx)
 {
-	list *node, *prev_node;
+	list *node, *pre;
 	unsigned int i = 0;
 
-	if (!head || !*head)
+	if (!h_h || !*h_h)
 		return (0);
 
-	if (!index)
+	if (!idx)
 	{
-		node = *head;
-		*head = (*head)->next;
+		node = *h_h;
+		*h_h = (*h_h)->next;
 		free(node->str);
 		free(node);
 		return (1);
 	}
-	node = *head;
+	node = *h_h;
 	while (node)
 	{
-		if (i == index)
+		if (i == idx)
 		{
-			prev_node->next = node->next;
+			pre->next = node->next;
 			free(node->str);
 			free(node);
 			return (1);
 		}
 		i++;
-		prev_node = node;
+		pre = node;
 		node = node->next;
 	}
 	return (0);
