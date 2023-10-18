@@ -198,7 +198,7 @@ int prepare_env(inf *);
 /* toem_getenv.c */
 char ** take_environ(inf *);
 /*int _unsetenv(inf*, char*);*/
-/*int _setenv(inf*, char*, char*);*/
+int _setenv(inf*, char*, char*);
 /*int unset_aliases(inf* info, char* str);*/
 /* toem_history.c */
 char * get_h_f(inf *info);
