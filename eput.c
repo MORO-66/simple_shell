@@ -8,13 +8,14 @@
  */
 void _errorputs(char *strring)
 {
-	int y;
+	int y = 0;
 
 	if (!strring)
 		return;
-	for (y = 0;strring[y] != '\0'; y++)
+	while (strring[y] != '\0')
 	{
 		_eputchar(strring[y]);
+		y++;
 	}
 }
 
