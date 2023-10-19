@@ -40,7 +40,7 @@ void f_inf(inf *f, int all_in)
 
 
 /**
- * free_list - f nodes of a list
+ * f_li - f nodes of a list
  * @h_ptr: ad pointer to head node
  *
  * Return: void
