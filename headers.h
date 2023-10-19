@@ -86,7 +86,7 @@ typedef struct info
 int head_shell(inf *, char **);
 void find_cmd(inf *);
 void cmd_fork(inf *);
-
+void null_info(inf* info);
 int cmd_sure(inf *, char *);
 char *dup_chars(char *, int, int);
 char *where_path(inf *, char *, char *);

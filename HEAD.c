@@ -11,10 +11,6 @@ int head_shell(inf *f, char **argv)
 {
 	ssize_t r = 0;
 	int builtin_ret = 0;
-	f->arg = NULL;
-	f->argv = NULL;
-	f->path_ = NULL;
-	f->argc = 0;
 
 	while (r != -1 && builtin_ret != -2)
 	{

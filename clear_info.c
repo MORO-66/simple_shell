@@ -1,6 +1,16 @@
 #include "headers.h"
 
-
+/**
+ * null_info - inlizes info_t struct
+ * @info: struct ass
+ */
+void null_info(inf* info)
+{
+	info->arg = NULL;
+	info->argv = NULL;
+	info->path_ = NULL;
+	info->argc = 0;
+}
 
 /**
  * free_info - fre_t struct fields

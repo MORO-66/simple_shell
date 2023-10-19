@@ -9,9 +9,9 @@
  */
 int print_d(int inputs, int filediscribe)
 {
-	unsigned int _abs_, current;
-	int i, count = 0;
 	int (*__putchar)(char) = _putchar;
+	int i, count = 0;
+	unsigned int _abs_, current;
 
 	if (filediscribe == STDERR_FILENO)
 		__putchar = _eputchar;
