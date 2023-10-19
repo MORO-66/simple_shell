@@ -14,6 +14,7 @@ int head_shell(inf *f, char **argv)
 
 	while (r != -1 && builtin_ret != -2)
 	{
+		null_info(f);
 		if (isatty(STDIN_FILENO) && f->r_fd <= 2)
 			_puts("$ ");
 		_eputchar(BUF_FLUSH);

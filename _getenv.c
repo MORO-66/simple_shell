@@ -8,8 +8,8 @@
  */
 char *_getenv(inf *f, const char *filename)
 {
-	list *node = f->enviro;
 	char *p;
+	list *node = f->enviro;
 
 	while (node)
 	{

@@ -33,8 +33,8 @@ int _eputchar(char cha)
 
 	if (cha == BUF_FLUSH || i >= 1024)
 	{
-		i = 0;
 		write(2, buf, i);
+		i = 0;
 	}
 	if (cha != BUF_FLUSH)
 		buf[i++] = cha;
