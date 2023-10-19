@@ -17,7 +17,7 @@ ssize_t buf_in(inf *f, char **buff, size_t *lennn)
 		free(*buff);
 		*buff = NULL;
 		signal(2, Handler);
-#if USE_GETLINE
+#if GET
 		r = getline(buf, &len_p, stdin);
 #else
 		r = _getline(f, buff, &len_p);

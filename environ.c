@@ -11,8 +11,8 @@ char **take_environ(inf *f)
 {
 	if (!f->environ || f->env_ch)
 	{
-		f->environ = list_to_strings(f->enviro);
 		f->env_ch = 0;
+		f->environ = list_to_strings(f->enviro);
 	}
 
 	return (f->environ);

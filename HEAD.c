@@ -14,7 +14,10 @@ int head_shell(inf *f, char **argv)
 
 	while (r != -1 && builtin_ret != -2)
 	{
-		null_info(f);
+		f->arg = NULL;
+		f->argv = NULL;
+		f->path_ = NULL;
+		f->argc = 0;
 		if (isatty(STDIN_FILENO) && f->r_fd <= 2)
 			_puts("$ ");
 		_eputchar(BUF_FLUSH);
@@ -26,10 +29,10 @@ int head_shell(inf *f, char **argv)
 		}
 		else if (isatty(STDIN_FILENO) && f->r_fd <= 2)
 			_putchar('\n');
-		free_info(f, 0);
+		f_inf(f, 0);
 	}
 	enf_history(f);
-	free_info(f, 1);
+	f_inf(f, 1);
 	if (!(isatty(STDIN_FILENO) && f->r_fd <= 2) && f->status)
 		exit(f->status);
 	if (builtin_ret == -2)

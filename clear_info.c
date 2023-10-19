@@ -1,17 +1,5 @@
 #include "headers.h"
 
-/**
- * null_info - inlizes info_t struct
- * @info: struct ass
- */
-void null_info(inf *info)
-{
-	info->arg = NULL;
-	info->argv = NULL;
-	info->path_ = NULL;
-	info->argc = 0;
-}
-
 
 
 /**
@@ -19,7 +7,7 @@ void null_info(inf *info)
  * @f: struct a
  * @all_in: true if fall fields
  */
-void free_info(inf *f, int all_in)
+void f_inf(inf *f, int all_in)
 {
 	kno_free(f->argv);
 	f->argv = NULL;
@@ -29,9 +17,9 @@ void free_info(inf *f, int all_in)
 		if (!f->cmd_buf)
 			free(f->arg);
 		if (f->enviro)
-			free_list(&(f->enviro));
+			f_li(&(f->enviro));
 		if (f->history)
-			free_list(&(f->history));
+			f_li(&(f->history));
 		kno_free(f->environ);
 			f->environ = NULL;
 		if (f->r_fd > 2)
@@ -47,7 +35,7 @@ void free_info(inf *f, int all_in)
  *
  * Return: void
  */
-void free_list(list **h_ptr)
+void f_li(list **h_ptr)
 {
 	list *node, *node2, *h_node;
 

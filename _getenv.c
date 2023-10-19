@@ -39,7 +39,6 @@ char *get_h_f(inf *info)
 		return (NULL);
 	buf[0] = 0;
 	_strcpy(buf, dir);
-	/*_strcat(buf, "/");*/
 	_strcat(buf, HIST_FILE);
 	return (buf);
 }

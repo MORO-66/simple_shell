@@ -9,17 +9,17 @@
  */
 int print_d(int inputs, int filediscribe)
 {
-	int (*__putchar)(char) = _putchar;
-	int i, count = 0;
 	unsigned int _abs_, current;
+	int i, count = 0;
+	int (*__putchar)(char) = _putchar;
 
 	if (filediscribe == STDERR_FILENO)
 		__putchar = _eputchar;
 	if (inputs < 0)
 	{
+		count++;
 		_abs_ = -inputs;
 		__putchar('-');
-		count++;
 	}
 	else
 		_abs_ = inputs;

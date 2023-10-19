@@ -10,7 +10,6 @@ int cmd_sure(inf *info, char *path)
 {
 	struct stat st;
 
-	(void)info;
 	if (!path || stat(path, &st))
 		return (0);
 
@@ -18,6 +17,7 @@ int cmd_sure(inf *info, char *path)
 	{
 		return (1);
 	}
+	(void)info;
 	return (0);
 }
 

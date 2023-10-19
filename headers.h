@@ -17,7 +17,7 @@
 
 
 /* 1 if using system getline() */
-#define USE_GETLINE 0
+#define GET 0
 
 #define HIST_FILE	"/.simple_shell_history"
 
@@ -119,9 +119,8 @@ ssize_t _rd_buf(inf *info, char *buf, size_t *i);
 ssize_t get_line(inf *);
 int _getline(inf *, char **, size_t *);
 void Handler(int);
-void null_info(inf *);
 void reset_info(inf *, char **);
-void free_info(inf *, int);
+void f_inf(inf *, int);
 char *_getenv(inf *, const char *);
 char **take_environ(inf *);
 char *get_h_f(inf *info);
@@ -132,7 +131,7 @@ int resum(inf *info);
 
 list *add_node_end(list **, const char *, int);
 int delete_node_at_index(list **, unsigned int);
-void free_list(list **);
+void f_li(list **);
 
 size_t len_of_list(const list *);
 char **list_to_strings(list *);

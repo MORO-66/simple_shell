@@ -8,14 +8,13 @@
  */
 void _errorputs(char *strring)
 {
-	int y = 0;
+	int y;
 
 	if (!strring)
 		return;
-	while (strring[y] != '\0')
+	for (y = 0;strring[y] != '\0'; y++)
 	{
 		_eputchar(strring[y]);
-		y++;
 	}
 }
 
@@ -31,12 +30,12 @@ int _eputchar(char cha)
 	static int i;
 	static char buf[1024];
 
-	if (cha == BUF_FLUSH || i >= 1024)
-	{
-		write(2, buf, i);
-		i = 0;
-	}
 	if (cha != BUF_FLUSH)
 		buf[i++] = cha;
+	if (cha == BUF_FLUSH || i >= 1024)
+	{
+		i = 0;
+		write(2, buf, i);
+	}
 	return (1);
 }
