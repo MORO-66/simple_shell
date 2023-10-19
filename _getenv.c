@@ -8,8 +8,8 @@
  */
 char *_getenv(inf *f, const char *filename)
 {
-	list *node = f->enviro;
 	char *p;
+	list *node = f->enviro;
 
 	while (node)
 	{
@@ -39,7 +39,7 @@ char *get_h_f(inf *info)
 		return (NULL);
 	buf[0] = 0;
 	_strcpy(buf, dir);
-	_strcat(buf, "/");
+	/*_strcat(buf, "/");*/
 	_strcat(buf, HIST_FILE);
 	return (buf);
 }
