@@ -8,8 +8,8 @@
  */
 char *_getenv(inf *f, const char *filename)
 {
-	char *p;
 	list *node = f->enviro;
+	char *p;
 
 	while (node)
 	{
@@ -39,6 +39,10 @@ char *get_h_f(inf *info)
 		return (NULL);
 	buf[0] = 0;
 	_strcpy(buf, dir);
+<<<<<<< HEAD
+=======
+	_strcat(buf, "/");
+>>>>>>> parent of e08be2d (afd)
 	_strcat(buf, HIST_FILE);
 	return (buf);
 }

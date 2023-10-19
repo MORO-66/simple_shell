@@ -19,7 +19,7 @@
 /* 1 if using system getline() */
 #define GET 0
 
-#define HIST_FILE	"/.simple_shell_history"
+#define HIST_FILE	".simple_shell_history"
 
 extern char **environ;
 
