@@ -4,7 +4,7 @@
  * null_info - inlizes info_t struct
  * @info: struct ass
  */
-void null_info(inf* info)
+void null_info(inf *info)
 {
 	info->arg = NULL;
 	info->argv = NULL;
@@ -13,7 +13,7 @@ void null_info(inf* info)
 }
 
 /**
- * free_info - fre_t struct fields
+ * f_inf - fre_t struct fields
  * @f: struct a
  * @all_in: true if fall fields
  */
