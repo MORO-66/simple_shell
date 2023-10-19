@@ -64,7 +64,7 @@ void cmd_fork(inf *f)
 	{
 		if (execve(f->path_, f->argv, take_environ(f)) == -1)
 		{
-			free_info(f, 1);
+			f_inf(f, 1);
 			if (errno == EACCES)
 				exit(126);
 			exit(1);
